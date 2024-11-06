@@ -1,0 +1,50 @@
+.footer {
+    background-color: #2d2d2d;
+    color: #bfbfbf;
+
+    h5 {
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+
+    p {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    a {
+        color: #bfbfbf;
+        text-decoration: none;
+        font-size: 1.25rem;
+
+        &:hover {
+            color: #ff6f3c;
+        }
+    }
+
+    .social-icons a {
+        display: inline-block;
+        margin-right: 0.5rem;
+
+        img {
+            filter: brightness(0) invert(1);
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    .social-icons i {
+        font-size: 1.5rem; // Adjust the size as needed
+        color: #ffffff;    // Set the color to white for contrast against the dark background
+        transition: transform 0.3s; // Add a smooth transition for hover effect
+
+        &:hover {
+            color: #ff6f3c;   // Change color on hover to the brand's accent color
+            transform: scale(1.2); // Slightly enlarge on hover
+        }
+    }
+
+}

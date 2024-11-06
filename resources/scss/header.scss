@@ -1,0 +1,39 @@
+header {
+    padding: 1rem 0;
+
+    .navbar-brand img {
+        max-height: 10rem;
+        margin-left: 4rem;
+    }
+
+    .nav-link {
+        color: #ffffff;
+        font-weight: 500;
+        margin-right: 1rem;
+        font-size: 1.25rem;
+
+        &:hover {
+            color: #ff6f3c;
+        }
+    }
+
+    .nav-link.active {
+        color: #ff6f3c;
+    }
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    transition: background-color 1s ease;
+    background-color: transparent;
+    z-index: 1000;
+}
+
+.header.scrolled {
+    background-color: white;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
