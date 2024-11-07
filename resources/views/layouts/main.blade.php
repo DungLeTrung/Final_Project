@@ -26,7 +26,7 @@
         @include('partials.header')
     </div>
     <!-- Main Content -->
-    <div class="content-container">
+    <div class="container-fluid flex flex-col col-12">
         @yield('content')
     </div>
 

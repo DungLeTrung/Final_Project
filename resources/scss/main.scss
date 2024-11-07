@@ -1,4 +1,20 @@
 @use "auth.scss";
 @use "header.scss";
-@use "about_us.scss";
+@use "public/about_us.scss";
+@use "public/home_page.scss";
 @use "footer.scss";
+
+
+.container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.row-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0;
+    margin-right: 0;
+}

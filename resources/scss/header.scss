@@ -35,5 +35,14 @@ header {
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+.navbar-nav .nav-link.active {
+    color: orange !important;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link:hover {
+    color: orange;
+}
+
 
 

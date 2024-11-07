@@ -1,0 +1,126 @@
+.full-width-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0;
+    margin-right: 0;
+
+    .thumbnail_image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0;
+    margin-right: 0;
+    }
+
+    .text-overlay-home-page {
+    position: absolute;
+    top: 35%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    h2 {
+    font-size: 5rem;
+    }
+    h4 {
+        font-size: 2rem;
+    }
+    }
+    }
+
+    .images-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 20px;
+    img.full-width-img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .first-image {
+    max-width: 70%;
+    height: auto;
+    }
+    .third-image {
+    width: 300%;
+    max-width: 30vw;
+    height: auto;
+    object-fit: cover;
+    }
+    .four-image {
+    max-width: 100vw;
+    height: auto;
+    object-fit: cover;
+    }
+    }
+
+    .main-image {
+    width: 100%;
+    height: auto;
+    }
+
+    .sub-image {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    width: 125%;
+    height: auto;
+    }
+
+    .travel-component{
+    .text-section {
+    h2 {
+    font-size: 2.5rem;
+    text-align: left;
+
+    }
+    .quote-section {
+    text-align: left;
+    p {
+    font-size: 1.5rem;
+    }
+    }
+    .quote-icon {
+    color: #ff6f3c;
+    font-size: 2rem;
+    }
+    .quote-icon-space {
+    padding-top: 9rem;
+    }
+    .highlight {
+    color: #ff6f3c
+    }
+    }
+    }
+
+    @media (max-width: 768px) {
+    .full-width-container {
+        height: 70%;
+    .text-overlay h2 {
+    font-size: 2.5rem;
+    padding: 0.5rem;
+    }
+    }
+    }
+
+    @media (max-width: 576px) {
+    .full-width-container {
+    .text-overlay h2 {
+    font-size: 2rem;
+    }
+    }
+    }
