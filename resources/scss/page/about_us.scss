@@ -40,14 +40,16 @@ justify-content: center;
 align-items: center;
 width: 100%;
 max-width: 100%;
-margin-top: 20px;
+
 img.full-width-img {
 width: 100%;
 max-width: 100%;
 height: auto;
+object-fit: cover;
 border-radius: 8px;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .first-image-about-us {
 max-width: 70%;
 height: auto;
@@ -66,17 +68,17 @@ object-fit: cover;
 }
 
 .main-image-about-us {
-width: 100%;
-height: auto;
-}
+    width: 70%;
+    height: auto;
+    }
 
 .sub-image-about-us {
-position: absolute;
-top: 50%;
-left: 25%;
-width: 125%;
-height: auto;
-}
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    width: 50%;
+    height: auto;
+    }
 
 .travel-component-about-us{
 .text-section-about-us {

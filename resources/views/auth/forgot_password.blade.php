@@ -3,7 +3,7 @@
 @section('title', 'Forgot Password')
 
 @section('auth-content')
-<div class="container col-12 min-vh-100">
+<div class="auth-container col-12 min-vh-100">
     <div class="col-md-5">
         <div class="left-panel col-md-12 col-lg-10">
             <h2>Forgot Password</h2>

@@ -3,7 +3,7 @@
         <div class="row col-md-10 mx-auto">
             <div class="col-md-3 col-12 mb-4">
                 <div class="navbar-brand mb-4">
-                    <img class="img-fluid" src="{{ asset('images/logo_website.jpg') }}" alt="BUMYAYA"
+                    <img class="img-fluid" src="{{ asset('images/logo_website_2.png') }}" alt="BUMYAYA"
                         style="height: 120px; width: 120px">
                 </div>
                 <div class="social-icons d-flex gap-3">

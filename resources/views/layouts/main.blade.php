@@ -18,23 +18,28 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @vite(['resources/scss/main.scss', 'resources/js/app.js'])
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
 </head>
 
 <body>
-    <div class="header">
-        @include('partials.header')
+    <div>
+        <div class="header">
+            @include('partials.header')
+        </div>
+
+        <!-- Main Content -->
+        <div class="container-fluid flex flex-col col-12">
+            @yield('content')
+        </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Footer -->
+        @include('partials.footer')
     </div>
-    <!-- Main Content -->
-    <div class="container-fluid flex flex-col col-12">
-        @yield('content')
-    </div>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Footer -->
-    @include('partials.footer')
 </body>
 
 <script src="{{ asset('js/index.js') }}" type="module"></script>

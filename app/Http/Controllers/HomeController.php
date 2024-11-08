@@ -15,4 +15,14 @@ class HomeController extends Controller
     {
         return view('home_page');
     }
+
+    public function listTour()
+    {
+        return view('list_tour');
+    }
+
+    public function listHotel()
+    {
+        return view('list_hotel');
+    }
 }

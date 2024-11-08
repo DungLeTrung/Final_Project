@@ -21,9 +21,9 @@
                     <!-- Phần ảnh, chỉ hiển thị trên màn hình md trở lên -->
                     <div class="images-section col-md-7 d-none d-md-block" style="position: relative;">
                         <img src="{{ asset('images/home_page_1.jpg') }}" alt="Desert"
-                            class="img-fluid main-image first-image">
+                            class="img-fluid main-image-about-us">
                         <img src="{{ asset('images/home_page_2.png') }}" alt="Mountains"
-                            class="img-fluid sub-image first-image">
+                            class="img-fluid sub-image-about-us ">
                     </div>
 
                     <!-- Phần text -->
@@ -73,7 +73,9 @@
                         </div>
                     </div>
                     <div class="images-section-about-us col-md-5 d-none d-md-block">
-                        <img src="{{ asset('images/home_page_3.png') }}" alt="Mountains" class="img-fluid full-width-img">
+                        <div class="image-responsive-about-us">
+                            <img src="{{ asset('images/home_page_3.png') }}" alt="Mountains" class="img-fluid full-width-img">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -107,7 +109,9 @@
                                 donec lectus ullamcorper faucibus. Malesuada et adipiscing molestie egestas leo ut.</p>
                         </div>
                         <div class="images-section-about-us col-md-12 d-none d-md-block">
-                            <img src="{{ asset('images/about_us_2.jpg') }}" alt="Mountains" class="img-fluid full-width-img">
+                            <div class="image-responsive-about-us">
+                                <img src="{{ asset('images/about_us_2.jpg') }}" alt="Mountains" class="img-fluid full-width-img">
+                            </div>
                         </div>
                     </div>
                     <div class="text-section-about-us col-md-6 text-center">

@@ -14,9 +14,13 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/', [HomeController::class, 'homePage'])->name('home-page');
+
 Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('about-us');
 
-Route::get('/', [HomeController::class, 'homePage'])->name('home-page');
+Route::get('/list-tour', [HomeController::class, 'listTour'])->name('list-tour');
+
+Route::get('/list-hotel', [HomeController::class, 'listHotel'])->name('list-hotel');
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 // Route::post('/login', [AuthController::class, 'login'])->name('login.execute');
