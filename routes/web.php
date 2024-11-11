@@ -20,6 +20,8 @@ Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('about-us');
 
 Route::get('/list-tour', [HomeController::class, 'listTour'])->name('list-tour');
 
+Route::get('/detail-tour', [HomeController::class, 'detailTour'])->name('detail-tour');
+
 Route::get('/list-hotel', [HomeController::class, 'listHotel'])->name('list-hotel');
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');

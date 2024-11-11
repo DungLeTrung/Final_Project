@@ -109,9 +109,9 @@
                                 <h1>Hotels</h1>
                             </div>
                             <div class="col-6 d-flex gap-5">
-                                <div class="col-4"></div>
-                                <div class="col-8 d-flex gap-5 justify-content-center align-items-center">
-                                    <h3 style="color: #ff6f3c">SORT BY: </h3>
+                                <div class="col-3"></div>
+                                <div class="col-9 d-flex gap-5 justify-content-center align-items-center">
+                                    <h4 style="color: #ff6f3c">SORT BY: </h4>
                                     <div>
                                         <select class="form-control form-control-lg" style="height: 6vh">
                                             <option class="p-3" selected>Price (Low to High)</option>
@@ -120,10 +120,14 @@
                                             <option>Rating (High to Low)</option>
                                         </select>
                                     </div>
-                                    <button type="button"
-                                        class="btn btn-dark btn-lg ">
+                                    <button type="button" id="filterButton"
+                                        class="btn btn-dark btn-lg d-flex justify-content-center align-items-center ms-2 px-5 col-1"
+                                        data-bs-toggle="collapse" data-bs-target="#filterCollapse" aria-expanded="false"
+                                        aria-controls="filterCollapse">
                                         Filter
                                     </button>
+
+                                     @include('filter-component.hotel-filter')
                                 </div>
 
                             </div>
@@ -210,5 +214,28 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var budgetSlider = document.getElementById('budgetRange');
+            noUiSlider.create(budgetSlider, {
+                start: [150, 1000],
+                connect: true,
+                range: {
+                    'min': 0,
+                    'max': 2000
+                },
+                step: 10
+            });
+
+            var budgetMin = document.getElementById('budgetMin');
+            var budgetMax = document.getElementById('budgetMax');
+
+            budgetSlider.noUiSlider.on('update', function(values, handle) {
+                budgetMin.innerHTML = '$' + Math.round(values[0]);
+                budgetMax.innerHTML = '$' + Math.round(values[1]);
+            });
+        });
+    </script>
 
 @endsection()

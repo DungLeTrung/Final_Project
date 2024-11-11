@@ -104,18 +104,23 @@
 
     <div>
         <div class="container flex flex-col col-12 component-list-tour">
-            <div class="row justify-content-center">
-                <div class="col-10">
+            <div class="row justify-content-center filter-tour-component">
+                <div class="col-10 filter-tour">
                     <div class="row">
                         @include('partials.breadcrumb_tour')
                     </div>
-                    <div class="row">
-                        <div class="col-12 d-flex justify-content-between">
+                    <div class="row filter-tour-detail">
+                        <div class="col-12 d-flex justify-content-between filter-tour-detail-more">
                             <h1>Attractive tour and interesting experiences</h1>
-                            <button type="button"
-                                class="btn btn-dark btn-lg d-flex justify-content-center align-items-center ms-2 px-3 col-1">
+                            <button type="button" id="filterButton"
+                                class="btn btn-dark btn-lg d-flex justify-content-center align-items-center ms-2 px-3 col-1"
+                                data-bs-toggle="collapse" data-bs-target="#filterCollapse" aria-expanded="false"
+                                aria-controls="filterCollapse">
                                 Filter
                             </button>
+
+                                @include('filter-component.tour-filter')
+
                         </div>
                         <div class="position-relative w-100 overflow-hidden">
                             <div class="destination-cards-container-list-tour">
@@ -198,5 +203,29 @@
             </div>
         </div>
     </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var budgetSlider = document.getElementById('budgetRange');
+            noUiSlider.create(budgetSlider, {
+                start: [150, 1000],
+                connect: true,
+                range: {
+                    'min': 0,
+                    'max': 2000
+                },
+                step: 10
+            });
+
+            var budgetMin = document.getElementById('budgetMin');
+            var budgetMax = document.getElementById('budgetMax');
+
+            budgetSlider.noUiSlider.on('update', function(values, handle) {
+                budgetMin.innerHTML = '$' + Math.round(values[0]);
+                budgetMax.innerHTML = '$' + Math.round(values[1]);
+            });
+        });
+    </script>
 
 @endsection()

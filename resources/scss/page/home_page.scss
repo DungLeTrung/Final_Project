@@ -23,6 +23,31 @@
 
 }
 
+.banner-detail{
+    background-image: url('../../../public/images/thumbnail_image_2.png');
+    height: 40vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    color: white;
+    position: relative;
+    .text-overlay-home-page{
+        position: absolute;
+        top: 30%;
+        left: 5%;
+        justify-content: left;
+        h4 {
+            font-size: 3rem;
+            color: wheat
+        }
+        h2 {
+            font-size: 5rem;
+        }
+    }
+
+}
+
 .feature {
     display: flex;
     position: absolute;

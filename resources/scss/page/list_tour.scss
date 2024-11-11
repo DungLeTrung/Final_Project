@@ -77,6 +77,16 @@
 .component-list-tour {
     margin-top: 4rem;
     margin-bottom: 10rem;
+    .btn.filter-active {
+        background-color: white;
+        color: black; /* Đảm bảo màu chữ có thể nhìn rõ khi nền là trắng */
+    }
+
+    /* Màu nền mặc định của button */
+    .btn.btn-dark {
+        background-color: #343a40;
+        color: white;
+    }
     .section-text {
         font-size: 1.5rem;
         font-weight: bold;
@@ -252,6 +262,24 @@
     .destination-cards-container::-webkit-scrollbar {
         display: none;
     }
+}
+
+.noUi-connect {
+    background-color: #f29b7b !important;
+}
+
+.noUi-handle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #f29b7b;
+    border: 2px solid #f29b7b;
+    cursor: pointer;
+}
+
+.noUi-handle:hover {
+    transition: 0.5s;
+    background-color: #e2631a;
 }
 
 
