@@ -25,7 +25,7 @@
         </h2>
 
         <div class="row">
-            <div class="col-12 d-flex gap-5 justify-content-between">
+            <div class="col-12 d-flex gap-4 justify-content-between">
                 <div class="d-flex gap-2">
                     <i class="bi bi-calendar-check-fill icon"></i>
                     <h5 class="text-gray-600">3 days - 2 nights</h5>

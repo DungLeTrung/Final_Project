@@ -10,7 +10,7 @@
             </li>
         @endif
 
-        @if(request()->is('list-tour') || request()->is('detail-tour'))
+        @if(request()->is('detail-tour'))
             <li class="breadcrumb-item {{ request()->is('detail-tour') ? 'active' : '' }}">
                 <a href="{{ route('detail-tour') }}">Detail Tour</a>
             </li>
@@ -21,5 +21,12 @@
                 <a href="{{ route('list-hotel') }}">Hotel</a>
             </li>
         @endif
+
+        @if(request()->is('detail-hotel'))
+            <li class="breadcrumb-item {{ request()->is('detail-hotel') ? 'active' : '' }}">
+                <a href="{{ route('detail-hotel') }}">Detail Hotel</a>
+            </li>
+        @endif
+
     </ol>
 </nav>

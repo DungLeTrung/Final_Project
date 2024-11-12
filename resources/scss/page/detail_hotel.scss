@@ -1,6 +1,6 @@
-.component-detail-tour {
-    .detail-tour-component {
-        .detail-tour {
+.component-detail-hotel {
+    .detail-hotel-component {
+        .detail-hotel {
             .comment-user {
                 display: flex;
                 flex-direction: column;
@@ -75,11 +75,14 @@
                 border-right: 1px solid black;
             }
 
-            .card {
-                border: none;
-                border-radius: 10px;
-                background-color: rgb(243, 242, 242);;
-                width: 100%;
+            .rating-hotel {
+                position: relative;
+                background-color: #f68031;
+                background-size: cover; /* Đảm bảo hình ảnh bao phủ toàn bộ phần tử */
+                background-position: center; /* Căn giữa hình ảnh */
+                width: 100%; /* Chiếm 100% chiều rộng của phần tử chứa */
+                height: 100%; /* Chiếm 100% chiều cao của phần tử chứa */
+                aspect-ratio: 1; /* Đảm bảo tỷ lệ chiều rộng/chiều cao là 1:1 (hình vuông) */
             }
 
             .rating-star {
@@ -168,6 +171,7 @@
                 font-size: 18px;
             }
             .search-overlay {
+                height: 100%;
                 margin-left: 2rem;
                 z-index: 10;
                 display: flex;
@@ -175,6 +179,8 @@
                 width: 50vw;
                 bottom: 0;
                 .search-section {
+                    display: flex;
+                    flex-direction: column;
                     background-color: #F4F4F4;
                     border: 2px solid rgb(232, 232, 232);
                     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
@@ -310,10 +316,18 @@
                 color: #ff6f3c;
             }
             .custom-list-f00c {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+                gap: 5px;
                 list-style-type: none;
                 padding-left: 0;
             }
 
+            .custom-list-f00c li {
+                font-size: 1.25rem;
+                margin-bottom: 1rem;
+            }
             .custom-list-f00c li::before {
                 content: "\f00c";
                 font-family: "Font Awesome 5 Free";
@@ -340,6 +354,86 @@
                     font-size: 1.5rem;
                     font-weight: bold;
                 }
+            }
+            .room-card {
+                background-color: #f8f8f8;
+                border-radius: 8px;
+                padding: 5px 0px 5px 5px;
+                margin-bottom: 20px;
+                .room-image {
+                    width: 30px;
+                    height: 30px;
+                    aspect-ratio: 1 / 1;
+                    object-fit: cover;
+                    border-radius: 8px;
+                }
+            }
+
+            .room-details {
+                flex-grow: 1;
+            }
+            .room-title {
+                font-weight: bold;
+                font-size: 2rem;
+                margin-bottom: 5px;
+            }
+            .room-info {
+                font-size: 0.9em;
+                color: #6c757d;
+            }
+            .room-price {
+                font-size: 1.2em;
+                font-weight: bold;
+                color: #e74c3c;
+            }
+            .price-details {
+                font-size: 0.9em;
+                color: #6c757d;
+            }
+            .btn-select, .btn-selected, .btn-out {
+                font-weight: bold;
+                font-size: 1.5rem;
+            }
+            .btn-select {
+                color: #FF7B42;
+                border: 1px solid #FF7B42;
+                background: none;
+            }
+            .btn-selected {
+                color: #fff;
+                background-color: #FF7B42;
+                border: none;
+            }
+            .btn-out {
+                color: #fff;
+                background-color: #223143;
+                border: none;
+            }
+            .form-label {
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+            .addon-item {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .addon-item input[type="checkbox"] {
+                transform: scale(1.3);
+            }
+            .quantity-control {
+                display: flex;
+                align-items: center;
+            }
+            .quantity-btn {
+                background-color: #ff6f3c;
+                color: white;
+                border: none;
+                width: 32px;
+                height: 32px;
+                font-size: 1rem;
+                line-height: 1;
+                border-radius: 50%;
             }
         }
     }

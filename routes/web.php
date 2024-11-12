@@ -24,6 +24,8 @@ Route::get('/detail-tour', [HomeController::class, 'detailTour'])->name('detail-
 
 Route::get('/list-hotel', [HomeController::class, 'listHotel'])->name('list-hotel');
 
+Route::get('/detail-hotel', [HomeController::class, 'detailHotel'])->name('detail-hotel');
+
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 // Route::post('/login', [AuthController::class, 'login'])->name('login.execute');
 

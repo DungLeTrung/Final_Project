@@ -3,18 +3,17 @@
 @section('title', 'About Us')
 
 @section('content')
-<div class="row-fluid row w-100">
-    <div class="full-width-container-about-us">
-        <div class="row w-100 m-0 p-0">
-            <div class="col-12 position-relative p-0">
-                <img src="{{ asset('images/thumbnail_image_2.png') }}" alt="BUMYAYA" class="thumbnail_image-about-us img-fluid w-100">
-                <div class="text-overlay-about-us">
-                    <h2>About Us</h2>
-                </div>
+
+<div class="banner-about-us">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-overlay-home-page">
+                <h2>About Us</h2>
             </div>
         </div>
     </div>
-
+</div>
+<div class="row-fluid row w-100">
         <div class="container flex flex-col col-12 my-5">
             <div class="travel-component-about-us container d-flex flex-column align-items-center py-5 col-md-10">
                 <div class="row w-100 justify-content-center">

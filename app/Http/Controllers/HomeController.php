@@ -30,4 +30,8 @@ class HomeController extends Controller
     {
         return view('detail_tour');
     }
+
+    public function detailHotel() {
+        return view('detail_hotel');
+    }
 }
