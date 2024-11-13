@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -34,4 +35,6 @@ Route::get('/forgot-password', [AuthController::class, 'showForgotPasswordForm']
 Route::get('/change-password', [AuthController::class, 'showChangePasswordForm'])->name('changePassword');
 
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+
+Route::get('/admin-dashboard', [AdminController::class, 'showAdminDashboard'])->name('adminDashboard');
 

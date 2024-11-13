@@ -18,11 +18,17 @@
     </ul>
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active pt-3 gap-3" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <p style="font-size: 1.5rem; font-weight: bold">Rooms</p>
+            <p style="font-size: 2rem; font-weight: bold">Rooms</p>
             <div class="mt-2 d-flex flex-column justify-content-center align-items-center">
                 <div class="row col-12 mb-3 room-card" style="font-size: 1.25rem">
-                    <div class="col-3 text-center d-md-flex d-none flex-column justify-content-center align-items-center gap-3 p-0">
-                        <img src="{{ asset('images/hadong.jpg') }}" alt="Family Suite Image" style="width: 100%; height: 100%;">
+                    <div class="col-3 text-center d-md-flex d-none flex-column justify-content-center align-items-center gap-3 p-0 position-relative">
+                        <!-- Main Image -->
+                        <img src="{{ asset('images/hadong.jpg') }}" alt="Family Suite Image" class="img-fluid rounded room-image" style="width: 100%; height: 100%; object-fit: cover;">
+
+                        <!-- Detail Icon -->
+                        <span class="detail-icon" data-bs-toggle="modal" data-bs-target="#roomModal">
+                            <i class="bi bi-info-circle-fill"></i>
+                        </span>
                     </div>
 
                     <div class="col-12 col-md-9 room-details gap-3 p-3"
@@ -36,19 +42,29 @@
                                 <span><i class="bi bi-people-fill"></i> 4 Guest</span>
                             </div>
                             <br>
-                            <span>Air Conditioning &bull; Airport Transport &bull; Restaurant &bull; <a href="#">15 more</a></span>
+                            <span>Air Conditioning &bull; Airport Transport &bull; Restaurant &bull; <a
+                                    href="#">15 more</a></span>
                         </div>
 
-                        <div class="col-12 d-flex align-items-center p-0 justify-content-between" style="font-size: 1.5rem">
-                            <button class="btn btn-select px-4 py-2" style="border: 1px solid #ff6f3c" onclick="selectRoom(this)">Select Room</button>
-                            <div class="room-price" style="font-weight: bold; color: #ff6f3c;">$240.00 <span class="price-details">/night</span></div>
+                        <div class="col-12 d-flex align-items-center p-0 justify-content-between"
+                            style="font-size: 1.5rem">
+                            <button class="btn btn-select px-4 py-2" style="border: 1px solid #ff6f3c"
+                                onclick="selectRoom(this)">Select Room</button>
+                            <div class="room-price" style="font-weight: bold; color: #ff6f3c;">$240.00 <span
+                                    class="price-details">/night</span></div>
                         </div>
                     </div>
                 </div>
 
                 <div class="row col-12 mb-3 room-card" style="font-size: 1.25rem">
-                    <div class="col-3 text-center d-md-flex d-none flex-column justify-content-center align-items-center gap-3 p-0">
-                        <img src="{{ asset('images/hadong.jpg') }}" alt="Family Suite Image" style="width: 100%; height: 100%;">
+                    <div class="col-3 text-center d-md-flex d-none flex-column justify-content-center align-items-center gap-3 p-0 position-relative">
+                        <!-- Main Image -->
+                        <img src="{{ asset('images/hadong.jpg') }}" alt="Family Suite Image" class="img-fluid rounded room-image" style="width: 100%; height: 100%; object-fit: cover;">
+
+                        <!-- Detail Icon -->
+                        <span class="detail-icon" data-bs-toggle="modal" data-bs-target="#roomModal">
+                            <i class="bi bi-info-circle-fill"></i>
+                        </span>
                     </div>
 
                     <div class="col-12 col-md-9 room-details gap-3 p-3"
@@ -62,18 +78,28 @@
                                 <span><i class="bi bi-people-fill"></i> 4 Guest</span>
                             </div>
                             <br>
-                            <span>Air Conditioning &bull; Airport Transport &bull; Restaurant &bull; <a href="#">15 more</a></span>
+                            <span>Air Conditioning &bull; Airport Transport &bull; Restaurant &bull; <a
+                                    href="#">15 more</a></span>
                         </div>
 
-                        <div class="col-12 d-flex align-items-center p-0 justify-content-between" style="font-size: 1.5rem">
-                            <button class="btn btn-select px-4 py-2" style="border: 1px solid #ff6f3c" onclick="selectRoom(this)">Select Room</button>
-                            <div class="room-price" style="font-weight: bold; color: #ff6f3c;">$240.00 <span class="price-details">/night</span></div>
+                        <div class="col-12 d-flex align-items-center p-0 justify-content-between"
+                            style="font-size: 1.5rem">
+                            <button class="btn btn-select px-4 py-2" style="border: 1px solid #ff6f3c"
+                                onclick="selectRoom(this)">Select Room</button>
+                            <div class="room-price" style="font-weight: bold; color: #ff6f3c;">$240.00 <span
+                                    class="price-details">/night</span></div>
                         </div>
                     </div>
                 </div>
                 <div class="row col-12 mb-3 room-card" style="font-size: 1.25rem">
-                    <div class="col-3 text-center d-md-flex d-none flex-column justify-content-center align-items-center gap-3 p-0">
-                        <img src="{{ asset('images/hadong.jpg') }}" alt="Family Suite Image" style="width: 100%; height: 100%;">
+                    <div class="col-3 text-center d-md-flex d-none flex-column justify-content-center align-items-center gap-3 p-0 position-relative">
+                        <!-- Main Image -->
+                        <img src="{{ asset('images/hadong.jpg') }}" alt="Family Suite Image" class="img-fluid rounded room-image" style="width: 100%; height: 100%; object-fit: cover;">
+
+                        <!-- Detail Icon -->
+                        <span class="detail-icon" data-bs-toggle="modal" data-bs-target="#roomModal">
+                            <i class="bi bi-info-circle-fill"></i>
+                        </span>
                     </div>
 
                     <div class="col-12 col-md-9 room-details gap-3 p-3"
@@ -87,18 +113,28 @@
                                 <span><i class="bi bi-people-fill"></i> 4 Guest</span>
                             </div>
                             <br>
-                            <span>Air Conditioning &bull; Airport Transport &bull; Restaurant &bull; <a href="#">15 more</a></span>
+                            <span>Air Conditioning &bull; Airport Transport &bull; Restaurant &bull; <a
+                                    href="#">15 more</a></span>
                         </div>
 
-                        <div class="col-12 d-flex align-items-center p-0 justify-content-between" style="font-size: 1.5rem">
-                            <button class="btn btn-select px-4 py-2" style="border: 1px solid #ff6f3c" onclick="selectRoom(this)">Select Room</button>
-                            <div class="room-price" style="font-weight: bold; color: #ff6f3c;">$240.00 <span class="price-details">/night</span></div>
+                        <div class="col-12 d-flex align-items-center p-0 justify-content-between"
+                            style="font-size: 1.5rem">
+                            <button class="btn btn-select px-4 py-2" style="border: 1px solid #ff6f3c"
+                                onclick="selectRoom(this)">Select Room</button>
+                            <div class="room-price" style="font-weight: bold; color: #ff6f3c;">$240.00 <span
+                                    class="price-details">/night</span></div>
                         </div>
                     </div>
                 </div>
                 <div class="row col-12 mb-3 room-card" style="font-size: 1.25rem">
-                    <div class="col-3 text-center d-md-flex d-none flex-column justify-content-center align-items-center gap-3 p-0">
-                        <img src="{{ asset('images/hadong.jpg') }}" alt="Family Suite Image" style="width: 100%; height: 100%;">
+                    <div class="col-3 text-center d-md-flex d-none flex-column justify-content-center align-items-center gap-3 p-0 position-relative">
+                        <!-- Main Image -->
+                        <img src="{{ asset('images/hadong.jpg') }}" alt="Family Suite Image" class="img-fluid rounded room-image" style="width: 100%; height: 100%; object-fit: cover;">
+
+                        <!-- Detail Icon -->
+                        <span class="detail-icon" data-bs-toggle="modal" data-bs-target="#roomModal">
+                            <i class="bi bi-info-circle-fill"></i>
+                        </span>
                     </div>
 
                     <div class="col-12 col-md-9 room-details gap-3 p-3"
@@ -112,12 +148,15 @@
                                 <span><i class="bi bi-people-fill"></i> 4 Guest</span>
                             </div>
                             <br>
-                            <span>Air Conditioning &bull; Airport Transport &bull; Restaurant &bull; <a href="#">15 more</a></span>
+                            <span>Air Conditioning &bull; Airport Transport &bull; Restaurant &bull; <a
+                                    href="#">15 more</a></span>
                         </div>
 
-                        <div class="col-12 d-flex align-items-center p-0 justify-content-between" style="font-size: 1.5rem">
+                        <div class="col-12 d-flex align-items-center p-0 justify-content-between"
+                            style="font-size: 1.5rem">
                             <button class="btn btn-out px-4 py-2" disabled>Out of Room</button>
-                            <div class="room-price" style="font-weight: bold; color: #ff6f3c;">$240.00 <span class="price-details">/night</span></div>
+                            <div class="room-price" style="font-weight: bold; color: #ff6f3c;">$240.00 <span
+                                    class="price-details">/night</span></div>
                         </div>
                     </div>
                 </div>
@@ -377,3 +416,148 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="roomModal" tabindex="-1" aria-labelledby="roomModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content row" style="width: 100vw">
+            <div class="modal-header col-12">
+                <p class="modal-title" style="font-size: 2rem; font-weight: bold" id="roomModalLabel">Family Suite
+                </p>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="col-12 mt-3 row d-flex justify-content-between align-items-center">
+                <!-- Price and Button Section -->
+                <div class="col-7 d-flex align-items-center justify-content-between" style="font-size: 1.5rem">
+                    <div class="room-price" style="font-weight: bold; color: #ff6f3c;">$40.00 <span
+                            class="price-details">/night</span></div>
+                    <button class="btn btn-select px-4 py-2" style="border: 1px solid #ff6f3c"
+                        onclick="selectRoom(this)">Select Room</button>
+                </div>
+                <!-- Room Info Section -->
+                <div class="room-info col-5 d-flex flex-column align-items-center justify-content-center"
+                    style="font-size: 1.25rem; color: #0069E4">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center text-center gap-5">
+                        <span><i class="bi bi-bounding-box-circles"></i> 90 m²</span>
+                        <span><i class="bi bi-balloon-heart-fill"></i> 2 Queen Beds</span>
+                        <span><i class="bi bi-people-fill"></i> 4 Guests</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body ">
+                <div class="md:flex-row row d-flex p-3">
+                    <!-- Main Image and Thumbnails -->
+                    <div class="col-7">
+                        <div class="row my-3">
+                            <img id="subImage" src="{{ asset('images/muine.png') }}" alt="Main Display"
+                                class="img-fluid rounded w-100"
+                                style="height: 40vh; object-fit: cover; padding: 0; box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);">
+                        </div>
+
+                        <div class="row my-3">
+                            <div class="col-12 p-0 d-flex gap-2 destination-cards-container carousel"
+                                style="overflow-x: auto;">
+                                <div class="col-3 p-0">
+                                    <img onclick="updateSubImage('{{ asset('images/muine.png') }}')"
+                                        src="{{ asset('images/muine.png') }}" class="img-fluid thumbnail rounded room-image"
+                                        alt="Thumbnail 1"
+                                        style="width: 100%; height: 10vh; object-fit: cover; cursor: pointer;">
+                                </div>
+                                <div class="col-3 p-0">
+                                    <img onclick="updateSubImage('{{ asset('images/detail_tour.jpg') }}')"
+                                        src="{{ asset('images/detail_tour.jpg') }}"
+                                        class="img-fluid thumbnail rounded room-image" alt="Thumbnail 2"
+                                        style="width: 100%; height: 10vh; object-fit: cover; cursor: pointer;">
+                                </div>
+                                <div class="col-3 p-0">
+                                    <img onclick="updateSubImage('{{ asset('images/hadong.jpg') }}')"
+                                        src="{{ asset('images/hadong.jpg') }}" class="img-fluid thumbnail rounded room-image"
+                                        alt="Thumbnail 3"
+                                        style="width: 100%; height: 10vh; object-fit: cover; cursor: pointer;">
+                                </div>
+                                <div class="col-3 p-0">
+                                    <img onclick="updateSubImage('{{ asset('images/hoian.jpg') }}')"
+                                        src="{{ asset('images/hoian.jpg') }}" class="img-fluid thumbnail rounded room-image"
+                                        alt="Thumbnail 4"
+                                        style="width: 100%; height: 10vh; object-fit: cover; cursor: pointer;">
+                                </div>
+                                <!-- Additional thumbnails -->
+                                <div class="col-3 p-0">
+                                    <img onclick="updateMainImage('{{ asset('images/sapa.jpg') }}')"
+                                        src="{{ asset('images/sapa.jpg') }}" class="img-fluid thumbnail rounded room-image"
+                                        alt="Thumbnail 5"
+                                        style="width: 100%; height: 10vh; object-fit: cover; cursor: pointer;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Room Details and Facilities -->
+                    <div class="w-full md:w-1/2 mt-4 md:mt-0 md:ml-4 col-5">
+                        <p class="text-sm text-gray-700 mb-4">
+                            This air-conditioned room features large windows and a balcony with views of the city and
+                            sea.
+                            It contains a sitting area, flat-screen TV, fridge, and tea-and-coffee-making facilities.
+                        </p>
+                        <p class="text-sm text-gray-700 mb-4">
+                            The
+                            bathroom has a shower and toilet.
+                            Maximum occupancy is 2 adults and 1 child under 2 years old in a crib. No extra beds
+                            available.
+                        </p>
+                        <hr/>
+                        <div style="max-height: 300px; overflow-y: auto;">
+                            <p style="font-size: 1.5rem; font-weight: bold">Hotel Amenities</p>
+                            <ul class="custom-list-f00c">
+                                <li style="font-size: 1.25rem" class="my-2">Air conditioning</li>
+                                <li style="font-size: 1.25rem" class="my-2">Private Bathroom</li>
+                                <li style="font-size: 1.25rem" class="my-2">Flat-screen TV</li>
+                                <li style="font-size: 1.25rem" class="my-2">Free WiFi</li>
+                                <li style="font-size: 1.25rem" class="my-2">Free toiletries</li>
+                                <li style="font-size: 1.25rem" class="my-2">Shower</li>
+                                <li style="font-size: 1.25rem" class="my-2">Safe</li>
+                                <li style="font-size: 1.25rem" class="my-2">Toilet</li>
+                                <li style="font-size: 1.25rem" class="my-2">Towels</li>
+                                <li style="font-size: 1.25rem" class="my-2">Tile/Marble floor</li>
+                                <li style="font-size: 1.25rem" class="my-2">Desk</li>
+                                <li style="font-size: 1.25rem" class="my-2">Refrigerator</li>
+                                <li style="font-size: 1.25rem" class="my-2">Telephone</li>
+                                <li style="font-size: 1.25rem" class="my-2">Ironing facilities</li>
+                                <li style="font-size: 1.25rem" class="my-2">Satellite channels</li>
+                                <li style="font-size: 1.25rem" class="my-2">Tea/Coffee maker</li>
+                                <li style="font-size: 1.25rem" class="my-2">Hairdryer</li>
+                                <li style="font-size: 1.25rem" class="my-2">Electric kettle</li>
+                                <li style="font-size: 1.25rem" class="my-2">Wake-up service</li>
+                                <li style="font-size: 1.25rem" class="my-2">Wardrobe or closet</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function updateSubImage(src) {
+        document.getElementById('subImage').src = src;
+
+    }
+
+    function selectRoom(button) {
+        if (button.classList.contains('btn-select')) {
+            button.classList.remove('btn-select');
+            button.classList.add('btn-selected');
+            button.innerText = 'Selected';
+            button.style.color = "#fff";
+            button.style.backgroundColor = "#e67e22";
+            button.style.border = "none";
+        } else if (button.classList.contains('btn-selected')) {
+            button.classList.remove('btn-selected');
+            button.classList.add('btn-select');
+            button.innerText = 'Select Room';
+            button.style.color = "#e74c3c";
+            button.style.backgroundColor = "transparent";
+            button.style.border = "1px solid #e74c3c";
+        }
+    }
+</script>
