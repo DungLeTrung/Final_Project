@@ -20,6 +20,12 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @vite(['resources/scss/main.scss', 'resources/js/app.js'])
+    <link href="https://fonts.cdnfonts.com/css/dm-sans" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'DM Sans', sans-serif;
+        }
+    </style>
 </head>
 
 <body>

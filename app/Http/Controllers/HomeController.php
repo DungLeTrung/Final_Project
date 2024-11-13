@@ -34,4 +34,24 @@ class HomeController extends Controller
     public function detailHotel() {
         return view('detail_hotel');
     }
+
+    public function bookingTour() {
+        return view('booking.booking_tour');
+    }
+
+    public function bookingHotel() {
+        return view('booking.booking_hotel');
+    }
+
+    public function confirmBooking() {
+        return view('booking.confirm_booking');
+    }
+
+    public function privacyPolicy() {
+        return view('privacy_policy');
+    }
+
+    public function contactUs() {
+        return view('contact_us');
+    }
 }

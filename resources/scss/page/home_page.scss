@@ -30,13 +30,57 @@
     background-position: center;
     display: flex;
     align-items: center;
+    justify-content: center;
     color: white;
     position: relative;
     .text-overlay-home-page{
-        position: absolute;
-        top: 30%;
-        left: 5%;
-        justify-content: left;
+        text-align: center;
+
+        h4 {
+            font-size: 3rem;
+            color: wheat
+        }
+        h2 {
+            font-size: 5rem;
+        }
+    }
+
+}
+
+.banner-confirm{
+    background-image: url('../../../public/images/thumbnail_image_2.png');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+    .thank-you-overlay {
+        max-width: 50vw;
+        background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+        border-radius: 8px;
+        padding: 40px;
+        height: auto; 
+        color: black;
+        .text-primary {
+            color: #f97316;
+        }
+    }
+    .btn-primary {
+        background-color: #ff6f3c;
+        border: none;
+        width: 50%;
+        padding: 1rem;
+        margin-top: 2rem;
+        font-size: 1.5rem;
+        &:hover {
+            background-color: #e65b29;
+        }
+    }
+    .text-overlay-home-page{
+        text-align: center;
         h4 {
             font-size: 3rem;
             color: wheat
@@ -78,13 +122,12 @@
     background-position: center;
     display: flex;
     align-items: center;
+    justify-content: center;
     color: white;
     position: relative;
     .text-overlay-home-page{
-        position: absolute;
-        top: 30%;
-        left: 5%;
-        justify-content: left;
+        text-align: center;
+
         h4 {
             font-size: 3rem;
             color: wheat

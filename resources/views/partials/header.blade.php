@@ -20,7 +20,7 @@
                     <a class="nav-link {{ request()->is('list-hotel') ? 'active' : '' }}" href="{{ route('list-hotel') }}" style="color: white">Hotels</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" style="color: white">Contact</a>
+                    <a class="nav-link {{ request()->is('contact-us') ? 'active' : '' }}" href="{{ route('contact-us') }}" style="color: white">Contact</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" style="color: white">Login</a>

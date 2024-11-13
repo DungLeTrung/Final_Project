@@ -1,0 +1,24 @@
+.container-policy {
+    .container-policy-detail{
+        .text-header{
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #ff6f3c;
+            border: none;
+            width: 50%;
+            padding: 1rem;
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            &:hover {
+                background-color: #e65b29;
+            }
+        }
+        .custom-list-decimal {
+            list-style-type: decimal;
+            padding-left: 0;
+            margin-left: 20px;
+        }
+    }
+}

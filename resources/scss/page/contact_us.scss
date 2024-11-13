@@ -1,0 +1,23 @@
+.banner-contact-us{
+    background-image: url('../../../public/images/contact_us.jpg');
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+    .text-overlay-home-page{
+        text-align: center;
+
+        h4 {
+            font-size: 3rem;
+            color: wheat
+        }
+        h2 {
+            font-size: 5rem;
+        }
+    }
+
+}

@@ -18,6 +18,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @vite(['resources/scss/main.scss', 'resources/js/app.js'])
+    <link href="https://fonts.cdnfonts.com/css/dm-sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'DM Sans', sans-serif;
+        }
+    </style>
 </head>
 
 <body>

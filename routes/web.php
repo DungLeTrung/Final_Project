@@ -17,15 +17,25 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', [HomeController::class, 'homePage'])->name('home-page');
 
+Route::get('/privacy-policy', [HomeController::class, 'privacyPolicy'])->name('privacy-policy');
+
+Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact-us');
+
 Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('about-us');
 
 Route::get('/list-tour', [HomeController::class, 'listTour'])->name('list-tour');
 
 Route::get('/detail-tour', [HomeController::class, 'detailTour'])->name('detail-tour');
 
+Route::get('/booking-tour', [HomeController::class, 'bookingTour'])->name('booking-tour');
+
 Route::get('/list-hotel', [HomeController::class, 'listHotel'])->name('list-hotel');
 
+Route::get('/booking-hotel', [HomeController::class, 'bookingHotel'])->name('booking-hotel');
+
 Route::get('/detail-hotel', [HomeController::class, 'detailHotel'])->name('detail-hotel');
+
+Route::get('/confirm-booking', [HomeController::class, 'confirmBooking'])->name('confirm-booking');
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 // Route::post('/login', [AuthController::class, 'login'])->name('login.execute');

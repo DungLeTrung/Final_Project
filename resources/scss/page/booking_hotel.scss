@@ -1,0 +1,79 @@
+.component-booking-hotel{
+    .booking-hotel-component{
+        .booking-hotel{
+            .promo-input {
+                height: 6vh;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+            .apply-btn {
+                height: 6vh;
+                padding: 0 1.5rem;
+                border: 2px solid #ff6f3c;
+                background-color: transparent;
+                color: #ff6f3c;
+                font-weight: bold;
+                transition: background-color 0.2s, color 0.2s;
+                font-size: 1.5rem;
+            }
+
+            .apply-btn:hover {
+                background-color: #ff6f3c;
+                color: #fff;
+            }
+        }
+        .input-style{
+            .text-style {
+                background-color: white;
+                border: 2px solid #edbead;
+                padding-right: 0px !important
+            }
+            .iconic {
+                color: #ff6f3c;
+                font-size: 1.5rem;
+            }
+            .form-label {
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+        }
+        .input-style-booking{
+            .text-style-booking {
+                background-color: white;
+                border: 2px solid #E5E5E5;
+                padding-right: 0px !important
+            }
+            .iconic {
+                color: #ff6f3c;
+                font-size: 1.5rem;
+            }
+            .form-label {
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+        }
+        .search-overlay {
+            margin-left: 2rem;
+            z-index: 10;
+            display: flex;
+            height: 100%;
+            width: 50vw;
+            bottom: 0;
+            .search-section {
+                background-color: #F4F4F4;
+                border: 2px solid rgb(232, 232, 232);
+                box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+                border-radius: 10px;
+            }
+        }
+        .btn-primary {
+            background-color: #ff6f3c;
+            border: none;
+            width: 100%;
+            padding: 1rem;
+            margin-top: 2rem;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+    }
+}
