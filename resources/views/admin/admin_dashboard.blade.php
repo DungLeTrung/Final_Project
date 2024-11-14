@@ -4,44 +4,12 @@
 
 @section('admin-content')
     <div class="d-flex">
-        <aside class="bg-primary text-white p-3" id="sidebar">
-            <h2>SB ADMIN<sup>2</sup></h2>
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a href="#" class="nav-link text-white active">Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link text-white">Components</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link text-white">Utilities</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link text-white">Pages</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link text-white">Charts</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link text-white">Tables</a>
-                </li>
-            </ul>
-        </aside>
+        @include('component-admin.admin_sidebar')
 
         <!-- Main Content -->
-        <div class="flex-grow-1">
+        <div class="flex-grow-1 main-content">
             <!-- Header -->
-            <header class="d-flex justify-content-between align-items-center p-3 bg-white shadow-sm">
-                <input type="text" class="form-control w-25" placeholder="Search for...">
-                <div class="d-flex align-items-center">
-                    <button class="btn btn-outline-secondary mx-2">🔔</button>
-                    <button class="btn btn-outline-secondary mx-2">💬</button>
-                    <div class="d-flex align-items-center">
-                        <img src="https://via.placeholder.com/32" alt="User" class="rounded-circle me-2">
-                        <span>Valerie Luna</span>
-                    </div>
-                </div>
-            </header>
+            @include('component-admin.header_admin');
 
             <!-- Dashboard Content -->
             <main class="p-4">
@@ -50,7 +18,7 @@
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-body">
-                                <h6 class="card-title">EARNINGS (MONTHLY)</h6>
+                                <h6 class="card-title">NUMBER OF HOTEL</h6>
                                 <p class="card-text fs-4 fw-bold">$40,000</p>
                             </div>
                         </div>
@@ -58,7 +26,7 @@
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-body">
-                                <h6 class="card-title">EARNINGS (ANNUAL)</h6>
+                                <h6 class="card-title">NUMBER OF USER</h6>
                                 <p class="card-text fs-4 fw-bold">$215,000</p>
                             </div>
                         </div>
@@ -66,13 +34,8 @@
                     <div class="col-md-3">
                         <div class="card">
                             <div class="card-body">
-                                <h6 class="card-title">TASKS</h6>
-                                <div class="d-flex align-items-center">
-                                    <p class="fs-4 fw-bold mb-0">50%</p>
-                                    <div class="progress w-100 ms-3">
-                                        <div class="progress-bar bg-info" style="width: 50%;"></div>
-                                    </div>
-                                </div>
+                                <h6 class="card-title">NUMBER OF BOOKING</h6>
+                                <p class="card-text fs-4 fw-bold">$215,000</p>
                             </div>
                         </div>
                     </div>

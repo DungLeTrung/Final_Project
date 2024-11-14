@@ -7,3 +7,232 @@
     font-weight: 600;
     color: #6c757d;
 }
+
+.sidebar {
+   background-color: rgb(255, 177, 136);
+   width: 30vw;
+   .text-sidebar {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+        .nav-item {
+            margin-bottom: 2rem;
+            .nav-link.active {
+                background-color: rgb(241, 118, 52);
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.main-content {
+    .table-config {
+        background-color: #fff;
+        font-size: 1.1rem;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .table-config thead th {
+        background-color: #f8f9fa;
+        color: #343a40;
+        font-weight: bold;
+        text-align: left;
+        padding: 16px;
+        border-bottom: 2px solid #dee2e6;
+    }
+
+    .table-config tbody tr {
+        border-bottom: 1px solid #f1f1f1;
+        transition: background-color 0.3s ease;
+    }
+
+    .table-config tbody tr:hover {
+        background-color: #f8f9fa;
+    }
+
+    .table-config td {
+        padding: 12px 16px;
+        vertical-align: middle;
+    }
+
+    /* Status Badge */
+    .status-badge {
+        background-color: #dc3545;
+        color: white;
+        border-radius: 12px;
+        padding: 10px 10px;
+        font-size: 1.25rem;
+        font-weight: 500;
+    }
+
+    .status-success {
+        background-color: #157418;
+        color: white;
+        border-radius: 12px;
+        padding: 10px 10px;
+        font-size: 1.25rem;
+        font-weight: 500;
+    }
+
+    /* Action Button */
+    .btn-light {
+        color: #6c757d;
+        font-size: 1rem;
+    }
+
+    /* Checkboxes */
+    .table-config input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* Avatar Image */
+    .rounded-circle {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        border: 2px solid #e9ecef;
+    }
+
+    .dataTables_length {
+        font-size: 1.25rem;
+    margin: 0 3px;
+    border-radius: 4px;
+    border: none;
+    }
+
+    .dataTables_filter {
+        font-size: 1.25rem;
+    margin: 0 3px;
+    border-radius: 4px;
+    border: none;
+    }
+
+    .dataTables_info {
+        font-size: 1.25rem;
+    margin: 0 3px;
+    border-radius: 4px;
+    border: none;
+    }
+
+    /* Pagination Controls */
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        font-size: 1.1rem;
+        padding: 12px 20px;
+        margin: 0 3px;
+        border-radius: 4px;
+        border: none;
+        background: #6c757d;
+        color: white !important;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+        transition: 1s;
+        background: #abb2b8;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+        background: #495057;
+        color: white !important;
+    }
+
+    /* Adjust Info Text and Dropdown */
+    .dataTables_wrapper .dataTables_info,
+    .dataTables_wrapper .dataTables_length select {
+        color: #6c757d;
+    }
+    .table thead th {
+        vertical-align: middle;
+    }
+
+    .btn-outline-secondary {
+        width: 100%;
+        padding: 1rem;
+        border:none;
+        color: #ff6f3c;
+        &:hover {
+            background-color: #ff6f3c;
+            color: white;
+        }
+    }
+    .custom-dropdown{
+        padding: 1.5rem 1rem;
+        min-height: 150px;
+        .dropdown-item {
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+        }
+        .dropdown-item:hover {
+            background-color: #ff6f3c;
+        }
+    }
+    .main-profile {
+        .profile-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            .profile-info {
+                font-size: 1.5rem;
+                color: #6c757d;
+            }
+            .btn-primary {
+                background-color: #ff6f3c;
+                border: none;
+                width: 50%;
+                padding: 1rem;
+                margin-top: 2rem;
+                font-size: 1.5rem;
+                &:hover {
+                    background-color: #e65b29;
+                }
+            }
+            .btn-primary-second {
+                background-color: #ff6f3c;
+                border: none;
+                color: white;
+                width: 25%;
+                padding: 1rem;
+                margin-top: 2rem;
+                font-size: 1.5rem;
+                &:hover {
+                    background-color: #e65b29;
+                }
+            }
+
+            .btn-outline-primary {
+                background-color: #f8f9fa;
+                color: blue;
+                border: 1px solid blue;
+                width: 50%;
+                padding: 1rem;
+                margin-top: 2rem;
+                font-size: 1.5rem;
+                &:hover {
+                    background-color: #d6d7d7;
+                }
+            }
+            .social-links i {
+                color: #3b5998;
+                margin-right: 6px;
+            }
+            .social-links .fa-github { color: #333; }
+            .social-links .fa-twitter { color: #1da1f2; }
+            .social-links .fa-instagram { color: #e4405f; }
+            .social-links .fa-facebook { color: #3b5998; }
+            .social-links .fa-globe { color: #0d6efd; }
+        }
+
+        .project-status {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .progress-bar {
+            height: 8px;
+        }
+    }
+}

@@ -46,5 +46,34 @@ Route::get('/change-password', [AuthController::class, 'showChangePasswordForm']
 
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
 
-Route::get('/admin-dashboard', [AdminController::class, 'showAdminDashboard'])->name('adminDashboard');
+Route::get('/admin-dashboard', [AdminController::class, 'showAdminDashboard'])->name('admin-dashboard');
 
+Route::get('/admin-profile', [AdminController::class, 'adminProfile'])->name('admin-profile');
+
+//Tour
+Route::get('/tour-management', [AdminController::class, 'tourManagement'])->name('tour-management');
+
+Route::get('/tour-service', [AdminController::class, 'tourService'])->name('tour-service');
+
+Route::get('/tour-type', [AdminController::class, 'tourType'])->name('tour-type');
+
+Route::get('/tour-faq', [AdminController::class, 'tourFaq'])->name('tour-faq');
+
+Route::get('/tour-itinerary', [AdminController::class, 'tourItinerary'])->name('tour-itinerary');
+
+//Hotel
+Route::get('/hotel-management', [AdminController::class, 'hotelManagement'])->name('hotel-management');
+
+Route::get('/hotel-service', [AdminController::class, 'hotelService'])->name('hotel-service');
+
+Route::get('/hotel-add-ons', [AdminController::class, 'hotelAddOns'])->name('hotel-add-ons');
+
+//Room
+Route::get('/room-management', [AdminController::class, 'roomManagement'])->name('room-management');
+
+Route::get('/room-service', [AdminController::class, 'roomService'])->name('room-service');
+
+Route::get('/room-type', [AdminController::class, 'roomType'])->name('room-type');
+
+//User
+Route::get('/account-management', [AdminController::class, 'accountManagement'])->name('account-management');
