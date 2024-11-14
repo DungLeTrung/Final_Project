@@ -18,11 +18,11 @@
             <div class="travel-component-about-us container d-flex flex-column align-items-center py-5 col-md-10">
                 <div class="row w-100 justify-content-center">
                     <!-- Phần ảnh, chỉ hiển thị trên màn hình md trở lên -->
-                    <div class="images-section col-md-7 d-none d-md-block" style="position: relative;">
-                        <img src="{{ asset('images/home_page_1.jpg') }}" alt="Desert"
-                            class="img-fluid main-image-about-us">
-                        <img src="{{ asset('images/home_page_2.png') }}" alt="Mountains"
-                            class="img-fluid sub-image-about-us ">
+                    <div class="images-section col-md-7 d-none d-md-block position-relative">
+                        <div class="img-wrapper">
+                            <img src="{{ asset('images/home_page_1.jpg') }}" alt="Desert" class=" main-image-about-us">
+                            <img src="{{ asset('images/home_page_2.png') }}" alt="Mountains" class=" sub-image-about-us">
+                        </div>
                     </div>
 
                     <!-- Phần text -->

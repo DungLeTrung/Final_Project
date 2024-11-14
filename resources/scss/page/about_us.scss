@@ -67,18 +67,44 @@ object-fit: cover;
 }
 }
 
+.images-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-wrapper {
+    position: relative;
+    width: 100%;
+}
+
 .main-image-about-us {
-    width: 70%;
-    height: auto;
-    }
+    width: 60%;
+    position: relative;
+}
 
 .sub-image-about-us {
     position: absolute;
     top: 50%;
-    left: 30%;
-    width: 50%;
-    height: auto;
+    left: 40%;
+    width: 45%;
+    z-index: 1;
+    border: 2px solid #fff;
+}
+
+
+@media (max-width: 768px) {
+    .images-section {
+        display: block;
     }
+
+    .sub-image-about-us {
+        width: 60%;
+        bottom: 5%;
+        right: 5%;
+    }
+}
 
 .travel-component-about-us{
 .text-section-about-us {

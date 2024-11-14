@@ -19,5 +19,110 @@
             font-size: 5rem;
         }
     }
+}
 
+.banner-map{
+    background-image: url('../../../public/images/map_ha_dong.png');
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+    .text-overlay-home-page{
+        text-align: center;
+
+        h4 {
+            font-size: 3rem;
+            color: wheat
+        }
+        h2 {
+            font-size: 5rem;
+        }
+    }
+}
+
+.img-container {
+    position: relative;
+}
+
+.info-box {
+    bottom: 0;
+    left: 0;
+    width: 60%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #333;
+}
+
+.info-title {
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.info-list {
+    color: white;
+    list-style: none;
+    padding: 0;
+}
+
+.info-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.icon {
+    font-size: 2.5rem;
+    color: #ff6f3c;
+    margin-right: 10px;
+}
+
+.img-fluid {
+    width: 100%;
+    height: auto;
+}
+
+.btn-primary {
+    background-color: #ff6f3c;
+    border: none;
+    padding: 1rem;
+    margin-top: 2rem;
+    font-size: 1.25rem;
+    &:hover {
+        background-color: #e65b29;
+    }
+}
+
+@media (max-width: 768px) {
+    .info-box {
+        padding: 15px;
+        font-size: 1rem;
+    }
+
+    .info-title {
+        font-size: 1.5rem;
+    }
+
+    .icon {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .info-box {
+        padding: 10px;
+        font-size: 0.9rem; /* Even smaller font size on mobile */
+    }
+
+    .info-title {
+        font-size: 1.3rem;
+    }
+
+    .icon {
+        font-size: 1.1rem;
+    }
 }
