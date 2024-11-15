@@ -6,29 +6,29 @@
 <div class="auth-container col-12 min-vh-100">
     <div class="col-md-5">
         <div class="left-panel col-md-12 col-lg-10">
-            <h2>Sign in</h2>
-            <p>Welcome to NgaoduVietnam.</p>
+            <h2>{{ __('client.login') }}</h2>
+            <p>{{ __('client.welcome') }}</p>
             <form>
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email Address</label>
+                    <label for="email" class="form-label" style="font-size: 1.5rem">{{ __('client.email') }}</label>
                     <input type="email" class="form-control form-control-lg p-3" id="email" placeholder="Enter your email address">
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
+                    <label for="password" class="form-label" style="font-size: 1.5rem">{{ __('client.password') }}</label>
                     <input type="password" class="form-control form-control-lg p-3" id="password" placeholder="Enter your password address">
                 </div>
                 <div class="d-flex justify-content-end pt-3">
-                    <a href="{{ route('forgotPassword') }}" style="color: black; font-size: 1rem">Forgot Password ?</a>
+                    <a href="{{ route('forgotPassword') }}" style="color: black; font-size: 1.25rem">{{ __('client.forgot_password') }} ?</a>
                 </div>
-                <button type="submit" class="btn btn-primary btn-lg ">Sign In</button>
+                <button type="submit" class="btn btn-primary btn-lg ">{{ __('client.login') }}</button>
 
                 <button type="button" class="btn btn-primary btn-lg w-100" style="background-color: #3b5998; border-color: #3b5998;">
-                    <i class="bi bi-facebook"></i> Sign In with Facebook
+                    <i class="bi bi-facebook"></i> {{ __('client.login_facebook') }}
                 </button>
 
                 <div class="d-flex pt-4 gap-2">
-                    <label style="color: #black; font-size: 1rem">Don't have an account?</label>
-                    <a href="{{ route('register') }}" style="color: #ff6f3c; font-size: 1rem; font-weight: 500"> Sign Up</a>
+                    <label style="color: #black; font-size: 1.25rem">{{ __('client.not_account') }}</label>
+                    <a href="{{ route('register') }}" style="color: #ff6f3c; font-size: 1.25rem; font-weight: 500">{{ __('client.signup') }}</a>
                 </div>
             </form>
         </div>

@@ -15,13 +15,23 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+// Route::post('/login', [AuthController::class, 'login'])->name('login.execute');
+
+Route::get('/forgot-password', [AuthController::class, 'showForgotPasswordForm'])->name('forgotPassword');
+
+Route::get('/change-password', [AuthController::class, 'showChangePasswordForm'])->name('changePassword');
+
+Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+
 Route::get('/', [HomeController::class, 'homePage'])->name('home-page');
 
-Route::get('/privacy-policy', [HomeController::class, 'privacyPolicy'])->name('privacy-policy');
+Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('about-us');
 
 Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact-us');
 
-Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('about-us');
+Route::get('/privacy-policy', [HomeController::class, 'privacyPolicy'])->name('privacy-policy');
 
 Route::get('/list-tour', [HomeController::class, 'listTour'])->name('list-tour');
 
@@ -37,43 +47,40 @@ Route::get('/detail-hotel', [HomeController::class, 'detailHotel'])->name('detai
 
 Route::get('/confirm-booking', [HomeController::class, 'confirmBooking'])->name('confirm-booking');
 
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-// Route::post('/login', [AuthController::class, 'login'])->name('login.execute');
+Route::group(['middleware' => ['auth']], function () {
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+});
 
-Route::get('/forgot-password', [AuthController::class, 'showForgotPasswordForm'])->name('forgotPassword');
+Route::group(['middleware' => ['auth', 'admin']], function () {
+    Route::get('/admin-dashboard', [AdminController::class, 'showAdminDashboard'])->name('admin-dashboard');
 
-Route::get('/change-password', [AuthController::class, 'showChangePasswordForm'])->name('changePassword');
+    Route::get('/admin-profile', [AdminController::class, 'adminProfile'])->name('admin-profile');
 
-Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+    //Tour
+    Route::get('/tour-management', [AdminController::class, 'tourManagement'])->name('tour-management');
 
-Route::get('/admin-dashboard', [AdminController::class, 'showAdminDashboard'])->name('admin-dashboard');
+    Route::get('/tour-service', [AdminController::class, 'tourService'])->name('tour-service');
 
-Route::get('/admin-profile', [AdminController::class, 'adminProfile'])->name('admin-profile');
+    Route::get('/tour-type', [AdminController::class, 'tourType'])->name('tour-type');
 
-//Tour
-Route::get('/tour-management', [AdminController::class, 'tourManagement'])->name('tour-management');
+    Route::get('/tour-faq', [AdminController::class, 'tourFaq'])->name('tour-faq');
 
-Route::get('/tour-service', [AdminController::class, 'tourService'])->name('tour-service');
+    Route::get('/tour-itinerary', [AdminController::class, 'tourItinerary'])->name('tour-itinerary');
 
-Route::get('/tour-type', [AdminController::class, 'tourType'])->name('tour-type');
+    //Hotel
+    Route::get('/hotel-management', [AdminController::class, 'hotelManagement'])->name('hotel-management');
 
-Route::get('/tour-faq', [AdminController::class, 'tourFaq'])->name('tour-faq');
+    Route::get('/hotel-service', [AdminController::class, 'hotelService'])->name('hotel-service');
 
-Route::get('/tour-itinerary', [AdminController::class, 'tourItinerary'])->name('tour-itinerary');
+    Route::get('/hotel-add-ons', [AdminController::class, 'hotelAddOns'])->name('hotel-add-ons');
 
-//Hotel
-Route::get('/hotel-management', [AdminController::class, 'hotelManagement'])->name('hotel-management');
+    //Room
+    Route::get('/room-management', [AdminController::class, 'roomManagement'])->name('room-management');
 
-Route::get('/hotel-service', [AdminController::class, 'hotelService'])->name('hotel-service');
+    Route::get('/room-service', [AdminController::class, 'roomService'])->name('room-service');
 
-Route::get('/hotel-add-ons', [AdminController::class, 'hotelAddOns'])->name('hotel-add-ons');
+    Route::get('/room-type', [AdminController::class, 'roomType'])->name('room-type');
 
-//Room
-Route::get('/room-management', [AdminController::class, 'roomManagement'])->name('room-management');
-
-Route::get('/room-service', [AdminController::class, 'roomService'])->name('room-service');
-
-Route::get('/room-type', [AdminController::class, 'roomType'])->name('room-type');
-
-//User
-Route::get('/account-management', [AdminController::class, 'accountManagement'])->name('account-management');
+    //User
+    Route::get('/account-management', [AdminController::class, 'accountManagement'])->name('account-management');
+});
