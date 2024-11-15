@@ -8,14 +8,15 @@
         <div class="left-panel col-md-12 col-lg-10">
             <h2>{{ __('client.login') }}</h2>
             <p>{{ __('client.welcome') }}</p>
-            <form>
+            <form id="loginForm" method="POST" action="{{ route('login.execute') }}">
+                @csrf
                 <div class="mb-3">
                     <label for="email" class="form-label" style="font-size: 1.5rem">{{ __('client.email') }}</label>
-                    <input type="email" class="form-control form-control-lg p-3" id="email" placeholder="Enter your email address">
+                    <input type="email" class="form-control form-control-lg p-3" style="height: 6vh" id="email" name="email" placeholder="Enter your email address">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label" style="font-size: 1.5rem">{{ __('client.password') }}</label>
-                    <input type="password" class="form-control form-control-lg p-3" id="password" placeholder="Enter your password address">
+                    <input type="password" class="form-control form-control-lg p-3" style="height: 6vh" id="password" name="password" placeholder="Enter your password address">
                 </div>
                 <div class="d-flex justify-content-end pt-3">
                     <a href="{{ route('forgotPassword') }}" style="color: black; font-size: 1.25rem">{{ __('client.forgot_password') }} ?</a>
@@ -38,7 +39,7 @@
     </div>
 </div>
 
-{{-- <script>
+<script>
     $(document).ready(function() {
         $('#loginForm').on('submit', function(e) {
             e.preventDefault();
@@ -48,16 +49,20 @@
                 method: $(this).attr('method'),
                 data: $(this).serialize(),
                 success: function(response) {
+                    // Hiển thị thông báo thành công
                     showVanillaToast(response.message, 'success');
+
+                    // Chuyển hướng dựa trên vai trò
                     setTimeout(() => {
-                        window.location.href = '/';
-                    }, 3000);
+                        window.location.href = response.redirect;
+                    }, 2000);
                 },
                 error: function(xhr) {
+                    // Gọi hàm xử lý lỗi
                     formValidAjax(xhr);
                 }
             });
         });
     });
-</script> --}}
+</script>
 @endsection()
