@@ -26,6 +26,75 @@
 }
 
 .main-content {
+    .modal-dialog-centered {
+        display: flex;
+        justify-content: center;
+    }
+
+    .modal-dialog {
+        max-width: 70%;
+    }
+
+    .modal-dialog-tour-service {
+        max-width: 30%;
+    }
+
+    .modal-dialog-tour-normal {
+        max-width: 50%;
+    }
+
+    .modal-body {
+        margin: 2rem;
+    }
+
+    .modal-title {
+        font-size: 2rem;
+    }
+
+    /* Form styling for two-column layout */
+    .form-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .form-col {
+        flex: 1 1 calc(50% - 1rem); /* 50% width with gap */
+    }
+    .form-label {
+        font-size: 1.5rem;
+    }
+    .form-select {
+        font-size: 1.25rem;
+    }
+
+    .image-upload {
+        text-align: center;
+    }
+
+    .image-upload img {
+        width: 100%;
+        max-width: 150px;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+    }
+    .form-control {
+        font-size: 1.5rem;
+        padding: 0.75rem;
+        height: 5vh
+    }
+    .btn-primary {
+        background-color: #ff6f3c;
+        border: none;
+        width: 100%;
+        padding: 1rem;
+        margin-top: 2rem;
+        font-size: 1.5rem;
+        &:hover {
+            background-color: #e65b29;
+        }
+    }
     .table-config {
         background-color: #fff;
         font-size: 1.1rem;

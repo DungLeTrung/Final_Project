@@ -1,5 +1,5 @@
 <header class="d-flex justify-content-between align-items-center p-3 bg-white shadow-sm">
-    <input type="text" class="form-control w-25 p-3" placeholder="Search for...">
+    <div></div>
     <div class="d-flex align-items-center">
         <button class="btn btn-outline-secondary mx-2">
             <i class="fas fa-bell" style="font-size: 1.5rem;"></i>
