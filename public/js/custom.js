@@ -3,8 +3,8 @@ function showVanillaToast(content, type) {
     VanillaToasts.create({
         title: type === 'success' ? 'Success' : 'Error',
         text: content,
-        type: type, // Available types: success, error, info, warning
-        timeout: 3000 // Duration in milliseconds (optional)
+        type: type,
+        timeout: 3000
     });
 }
 
@@ -18,8 +18,6 @@ function formValidAjax(xhr) {
             const errorElement = $(`#${field}-error`);
             if (errorElement.length) {
                 errorElement.show().text(errors[0]);
-            } else {
-                showVanillaToast(errors[0], 'error');
             }
         });
     }

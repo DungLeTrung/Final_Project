@@ -18,6 +18,19 @@ header {
     .nav-link.active {
         color: #ff6f3c;
     }
+
+    .custom-dropdown{
+        padding: 1.5rem 1rem;
+        min-height: 150px;
+        .dropdown-item {
+            padding: 0.75rem 1rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        .dropdown-item:hover {
+            background-color: #ff6f3c;
+        }
+    }
 }
 
 .header {

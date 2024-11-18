@@ -19,7 +19,7 @@
                     <input type="password" class="form-control form-control-lg p-3" style="height: 6vh" id="password" name="password" placeholder="Enter your password address">
                 </div>
                 <div class="d-flex justify-content-end pt-3">
-                    <a href="{{ route('forgotPassword') }}" style="color: black; font-size: 1.25rem">{{ __('client.forgot_password') }} ?</a>
+                    <a href="{{ route('forgot-password') }}" style="color: black; font-size: 1.25rem">{{ __('client.forgot_password') }} ?</a>
                 </div>
                 <button type="submit" class="btn btn-primary btn-lg ">{{ __('client.login') }}</button>
 
@@ -49,16 +49,13 @@
                 method: $(this).attr('method'),
                 data: $(this).serialize(),
                 success: function(response) {
-                    // Hiển thị thông báo thành công
                     showVanillaToast(response.message, 'success');
 
-                    // Chuyển hướng dựa trên vai trò
                     setTimeout(() => {
                         window.location.href = response.redirect;
                     }, 2000);
                 },
                 error: function(xhr) {
-                    // Gọi hàm xử lý lỗi
                     formValidAjax(xhr);
                 }
             });

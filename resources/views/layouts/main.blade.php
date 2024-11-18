@@ -49,6 +49,7 @@
         @include('partials.footer')
     </div>
 </body>
+<script src="{{ asset('js/custom.js') }}"></script>
 
 <script src="{{ asset('js/index.js') }}" type="module"></script>
 

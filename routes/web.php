@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,17 +16,31 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/', [HomeController::class, 'homePage'])->name('home-page');
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.execute');
 
-Route::get('/forgot-password', [AuthController::class, 'showForgotPasswordForm'])->name('forgotPassword');
-
-Route::get('/change-password', [AuthController::class, 'showChangePasswordForm'])->name('changePassword');
-
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register'])->name('register.execute');
 
-Route::get('/', [HomeController::class, 'homePage'])->name('home-page');
+Route::get('/verify-otp', [AuthController::class, 'showOtpVerificationForm'])->name('verify-otp-register');
+Route::post('/verify-otp', [AuthController::class, 'verifyOtpRegister'])->name('verify-otp-register.execute');
+
+Route::get('/verify-otp-forgot-password', [AuthController::class, 'showOtpVerificationForgotPasswordForm'])->name('verify-otp-forgot-password');
+Route::post('/verify-otp-forgot-password', [AuthController::class, 'verifyOtpForgotPassword'])->name('verify-otp-forgot-password.execute');
+
+Route::get('/send-otp', [AuthController::class, 'showSendOTPForm'])->name('send-otp');
+Route::post('/send-otp', [AuthController::class, 'sendOtpForRegister'])->name('send-otp.execute');
+
+Route::get('/send-otp-forgot-password', [AuthController::class, 'showSendOTPForgotPassword'])->name('send-otp-forgot-password');
+Route::post('/send-otp-forgot-password', [AuthController::class, 'sendOtpForgotPassword'])->name('send-otp-forgot-password.execute');
+
+Route::get('/forgot-password', [AuthController::class, 'showForgotPasswordForm'])->name('forgot-password');
+
+Route::get('/change-password', [AuthController::class, 'showChangePasswordForm'])->name('change-password');
+Route::post('/change-password', [AuthController::class, 'changePassword'])->name('change-password.execute');
+
 
 Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('about-us');
 
@@ -49,6 +64,8 @@ Route::get('/confirm-booking', [HomeController::class, 'confirmBooking'])->name(
 
 Route::group(['middleware' => ['auth']], function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+    Route::get('/profile', [UserController::class, 'showProfile'])->name('profile');
 });
 
 Route::group(['middleware' => ['auth', 'admin']], function () {

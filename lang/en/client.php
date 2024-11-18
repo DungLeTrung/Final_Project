@@ -16,6 +16,10 @@ return [
 
     //Register
     'account' => 'Already Member',
+    'address' => 'Address',
+    'phone' => 'Phone',
+    'user_name' => 'User Name',
+    'confirm_password' => 'Confirm Password',
 
     //Forgot Password
     'intro' => 'Enter the e-mail address associated with the account. We will e-mail a link to reset your password.',

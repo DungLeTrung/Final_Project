@@ -13,13 +13,15 @@ class OtpMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $email;
     public $otpCode;
     public $expirationTime;
     /**
      * Create a new message instance.
      */
-    public function __construct(string $otpCode, \DateTime $expirationTime)
+    public function __construct(string $email, string $otpCode, \DateTime $expirationTime)
     {
+        $this->email = $email;
         $this->otpCode = $otpCode;
         $this->expirationTime = $expirationTime;
     }
@@ -46,6 +48,7 @@ class OtpMail extends Mailable
         return new Content(
             view: 'emails.otp',
             with: [
+                'email' => $this->email,
                 'otpCode' => $this->otpCode,
                 'expirationTime' => $this->expirationTime->format('H:i'),
             ],
