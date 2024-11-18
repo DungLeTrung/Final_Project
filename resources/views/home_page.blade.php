@@ -164,12 +164,14 @@
     <div class="container flex flex-col col-12 component-home-page">
         <div class="travel-component container d-flex flex-column align-items-center col-md-10">
             <div class="row w-100 justify-content-center">
-                <div class="images-section col-md-7 d-none d-md-block" style="position: relative;">
-                    <img src="{{ asset('images/home_page_1.jpg') }}" alt="Desert"
-                        class="img-fluid main-image-home-page ">
-                    <img src="{{ asset('images/home_page_2.png') }}" alt="Mountains"
-                        class="img-fluid sub-image-home-page ">
+                <!-- Phần ảnh, chỉ hiển thị trên màn hình md trở lên -->
+                <div class="images-section col-md-7 d-none d-md-block position-relative">
+                    <div class="img-wrapper">
+                        <img src="{{ asset('images/home_page_1.jpg') }}" alt="Desert" class=" main-image-about-us">
+                        <img src="{{ asset('images/home_page_2.png') }}" alt="Mountains" class=" sub-image-about-us">
+                    </div>
                 </div>
+
 
                 <div class="text-section col-md-5 text-center">
                     <h2>With <span class="highlight">NgaoduVietnam</span>, immerses you in majestic space and unique
@@ -328,7 +330,7 @@
                                 @include('component-tour.tour-hour')
 
                                 <!-- Extra Destination Card 5 -->
-                                @include('component-tour.tour-info')
+                                @include('component-tour.tour-hour')
                             </div>
                         </div>
                     </div>

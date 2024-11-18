@@ -102,11 +102,9 @@ class AuthController extends Controller
                     201,
                 );
             }
-        } catch (ValidationException $e) {
-            return response()->json([
-                'errors' => $e->validator->getMessageBag(),
-            ], 422);
         } catch (\Exception $e) {
+            DB::rollBack();
+
             return response()->json([
                 'message' => 'Something went wrong. Please try again later.',
                 'error' => $e->getMessage(),
@@ -135,6 +133,8 @@ class AuthController extends Controller
                 'redirect' => route('verify-otp-register', ['email' => $request->email]),
             ], 201);
         } catch (\Exception $e) {
+            DB::rollBack();
+
             return response()->json([
                 'message' => 'Error sending OTP.',
                 'error' => $e->getMessage(),
@@ -163,6 +163,8 @@ class AuthController extends Controller
                 'redirect' => route('verify-otp-forgot-password', ['email' => $request->email]),
             ], 201);
         } catch (\Exception $e) {
+            DB::rollBack();
+
             return response()->json([
                 'message' => 'Error sending OTP.',
                 'error' => $e->getMessage(),
@@ -184,6 +186,8 @@ class AuthController extends Controller
                 200,
             );
         } catch (\Exception $e) {
+            DB::rollBack();
+
             return response()->json([
                 'message' => 'Error verify OTP.',
                 'error' => $e->getMessage(),
@@ -210,6 +214,8 @@ class AuthController extends Controller
                 'redirect' => route('change-password', ['email' => $request->email]),
             ], 201);
         } catch (\Exception $e) {
+            DB::rollBack();
+
             return response()->json([
                 'message' => 'Error verify OTP.',
                 'error' => $e->getMessage(),
@@ -243,8 +249,7 @@ class AuthController extends Controller
             );
         } catch (\Exception $e) {
             DB::rollBack();
-            Log::error('Error updating password: ' . $e->getMessage());
-            return response()->json(['message' => $e->getMessage()], 400);
+            return response()->json(['message' => $e->getMessage()], 500);
         }
     }
 }

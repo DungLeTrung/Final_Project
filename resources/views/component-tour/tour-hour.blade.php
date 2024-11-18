@@ -1,4 +1,4 @@
-<div class="destination-card col-12 col-sm-6 col-md-4 me-3">
+<div class="destination-card col-12 col-sm-6 col-md-4 me-3" style="font-size: 1rem">
     <img src="{{ asset('images/sapa.jpg') }}" alt="Sapa" class="img-fluid main-image first-image">
 
     <!-- Save Icon -->
@@ -15,20 +15,20 @@
     <div class="p-4 content-container container">
         <div class="row">
             <!-- Location Info -->
-            <div class="col-12 d-flex gap-2">
+            <div class="col-12 d-flex gap-2 align-items-center">
                 <i class="bi bi-geo-alt-fill icon"></i>
-                <h5 class="font-bold text-lg ">Sapa, Laocai</h5>
+                <h5 class="font-bold text-lg" style="font-size: 1.5rem">Sapa, Laocai</h5>
             </div>
         </div>
-        <h2 class="font-bold text-lg mb-3">
+        <h2 class="font-bold mb-3">
             Discover interesting things in the romantic coastal city of Vungtau
         </h2>
 
         <div class="row">
             <div class="col-12 d-flex gap-5 justify-content-between">
-                <div class="d-flex gap-2">
+                <div class="d-flex gap-2 align-items-center">
                     <i class="bi bi-calendar-check-fill icon"></i>
-                    <h5 class="text-gray-600">2 Hours</h5>
+                    <h5 class="text-gray-600" style="font-size: 1.5rem">2 Hours</h5>
                 </div>
                 <div class="d-flex gap-2 align-items-center">
                     <h5>From</h5>

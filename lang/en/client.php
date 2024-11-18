@@ -10,7 +10,7 @@ return [
     //Login
     'login' => 'Sign In',
     'signup' => 'Sign Up',
-    'login_facebook' => 'Sign In with Facebook',
+    'login_google' => 'Sign In with Google',
     'welcome' => 'Welcome to NgaoduVietnam.',
     'not_account' => 'Do not have an account?',
 
