@@ -13,7 +13,7 @@ class TourRepository
         $this->tour = $tour;
     }
 
-    public function all()
+    public function getAll()
     {
         return $this->tour->all();
     }

@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GoogleSocialiteController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TourController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -78,13 +79,19 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/admin-profile', [AdminController::class, 'adminProfile'])->name('admin-profile');
 
     //Tour
-    Route::get('/tour-management', [AdminController::class, 'tourManagement'])->name('tour-management');
+    Route::get('/tour-management', [TourController::class, 'tourManagement'])->name('tour-management');
 
-    Route::get('/tour-service', [AdminController::class, 'tourService'])->name('tour-service');
+    Route::get('/tour-service', [TourController::class, 'tourService'])->name('tour-service');
 
-    Route::get('/tour-type', [AdminController::class, 'tourType'])->name('tour-type');
+    Route::get('/tour-type', [TourController::class, 'tourType'])->name('tour-type');
+    Route::post('/tour-type', [TourController::class, 'createOrUpdateType'])->name('tour-type.execute');
+    Route::put('/tour-type/{id}', [TourController::class, 'createOrUpdateType']);
+    Route::delete('/tour-type/{id}', [TourController::class, 'deleteType'])->name('tour-type.delete');
 
-    Route::get('/tour-faq', [AdminController::class, 'tourFaq'])->name('tour-faq');
+    Route::get('/tour-faq', [TourController::class, 'tourFaq'])->name('tour-faq');
+    Route::post('/tour-faq', [TourController::class, 'createOrUpdateFAQ'])->name('tour-faq.execute');
+    Route::put('/tour-faq/{id}', [TourController::class, 'createOrUpdateFAQ']);
+    Route::delete('/tour-faq/{id}', [TourController::class, 'deleteFaq'])->name('tour-faq.delete');
 
     Route::get('/tour-itinerary', [AdminController::class, 'tourItinerary'])->name('tour-itinerary');
 

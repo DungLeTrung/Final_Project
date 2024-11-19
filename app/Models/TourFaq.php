@@ -9,7 +9,7 @@ class TourFaq extends Model
 {
     use HasFactory;
 
-    protected $table = 'tour_faq';
+    protected $table = 'faq';
 
     protected $fillable = [
         'question',

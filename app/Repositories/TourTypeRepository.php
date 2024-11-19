@@ -13,7 +13,7 @@ class TourTypeRepository
         $this->tourtype = $tourtype;
     }
 
-    public function all()
+    public function getAll()
     {
         return $this->tourtype->all();
     }

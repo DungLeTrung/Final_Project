@@ -13,7 +13,7 @@ class TourFaqRepository
         $this->tourfaq = $tourfaq;
     }
 
-    public function all()
+    public function getAll()
     {
         return $this->tourfaq->all();
     }
