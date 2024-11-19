@@ -32,4 +32,9 @@ return [
     'new_password' => 'New Password',
     'confirm_password' => 'Confirm Password',
     'remember_password' => 'You remember that',
+
+    //Send OTP
+    'send_otp' => 'Send OTP',
+    'otp_code' => 'OTP Code',
+    'verify_otp' => 'Verify OTP'
 ];

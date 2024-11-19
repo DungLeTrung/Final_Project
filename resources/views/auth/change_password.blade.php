@@ -14,7 +14,7 @@
                         $email = request('email');
                     @endphp
                     <div class="mb-3">
-                        <label for="email" class="form-label" style="font-size: 1.5rem" hidden>Email:</label>
+                        <label for="email" class="form-label" style="font-size: 1.5rem" hidden>{{ __('client.email') }}</label>
                         <input type="hidden" id="email" name="email" value="{{ $email ?? '' }}" required>
                     </div>
                     <div class="mb-3">

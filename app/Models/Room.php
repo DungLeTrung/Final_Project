@@ -40,4 +40,9 @@ class Room extends Model
     {
         return $this->belongsToMany(ServiceOfRoom::class, 'room_service');
     }
+
+    public function images()
+    {
+        return $this->hasMany(AlbumImage::class);
+    }
 }

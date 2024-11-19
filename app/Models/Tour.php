@@ -69,4 +69,9 @@ class Tour extends Model
     {
         return $this->hasMany(TourItinerary::class);
     }
+
+    public function images()
+    {
+        return $this->hasMany(AlbumImage::class);
+    }
 }

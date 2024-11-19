@@ -11,16 +11,16 @@
                 <form id="otpVerificationForm" method="POST" action="{{ route('verify-otp-register.execute')}}">
                     @csrf
                     <div class="mb-3">
-                        <label for="email" class="form-label" style="font-size: 1.5rem" hidden>Email:</label>
+                        <label for="email" class="form-label" style="font-size: 1.5rem" hidden>{{ __('client.email') }}</label>
                         <input type="hidden" id="email" name="email" value="{{ $email }}" required>
                     </div>
                     <div class="mb-3">
-                        <label for="otp_code" class="form-label" style="font-size: 1.5rem">OTP Code:</label>
+                        <label for="otp_code" class="form-label" style="font-size: 1.5rem">{{ __('client.otp_code') }}</label>
                         <input type="text" class="form-control form-control-lg p-3" id="otp_code" name="otp_code"
                             required maxlength="4">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-lg ">Verify OTP</button>
-                    <button type="button" class="btn btn-primary btn-lg " id="resendOtpButton">Re-send OTP</button>
+                    <button type="submit" class="btn btn-primary btn-lg ">{{ __('client.verify_otp') }}</button>
+                    <button type="button" class="btn btn-primary btn-lg " id="resendOtpButton">{{ __('client.send_otp') }}</button>
                 </form>
             </div>
         </div>

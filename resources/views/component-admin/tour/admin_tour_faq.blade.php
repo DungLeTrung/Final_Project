@@ -54,7 +54,7 @@
             <div class="modal-body">
                 <div class="d-flex">
                     <div class="col-12">
-                        <form id="createForm">
+                        <form id="createForm" method="POST">
                             <div class="form-row">
                                 <div class="form-col">
                                     <label for="question" class="form-label">Question</label>

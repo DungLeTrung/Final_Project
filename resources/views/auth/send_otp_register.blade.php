@@ -11,11 +11,11 @@
                 <form id="sendOTPForm" method="POST" action="{{ route('send-otp.execute')}}">
                     @csrf
                     <div class="mb-3">
-                        <label for="email" class="form-label" style="font-size: 1.5rem">Email: </label>
+                        <label for="email" class="form-label" style="font-size: 1.5rem">{{ __('client.email') }}</label>
                         <input type="email" class="form-control form-control-lg p-3" id="email" name="email"
                             required>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-lg ">Send OTP</button>
+                    <button type="submit" class="btn btn-primary btn-lg ">{{ __('client.send_otp') }}</button>
                 </form>
             </div>
         </div>
