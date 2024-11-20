@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('/', [HomeController::class, 'homePage'])->name('home-page');
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
@@ -74,14 +75,24 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 Route::group(['middleware' => ['auth', 'admin']], function () {
-    Route::get('/admin-dashboard', [AdminController::class,'showAdminDashboard'])->name('admin-dashboard');
+    Route::get('/admin-dashboard', [AdminController::class, 'showAdminDashboard'])->name('admin-dashboard');
 
     Route::get('/admin-profile', [AdminController::class, 'adminProfile'])->name('admin-profile');
 
     //Tour
     Route::get('/tour-management', [TourController::class, 'tourManagement'])->name('tour-management');
+    Route::get('/tour-management/create', [TourController::class, 'create'])->name('tour-management.create');
+    Route::post('/tour-management', [TourController::class, 'createTour'])->name('tour-management.execute');
+    Route::get('tour-management/{id}/edit', [TourController::class, 'edit'])->name('tour-management.edit');
+    Route::post('tour-management/{id}/update', [TourController::class, 'updateTour'])->name('tour-management.update');
+    Route::delete('/tour-management/{id}', [TourController::class, 'deleteTour'])->name('tour-management.delete');
+    Route::post('/tour/{tourId}/update-gallery', [TourController::class, 'updateGallery'])->name('tour-management.update-gallery');
+    Route::post('/tour/{tour}/delete-image/{image}', [TourController::class, 'deleteImage'])->name('tour-management.delete-image');
 
     Route::get('/tour-service', [TourController::class, 'tourService'])->name('tour-service');
+    Route::post('/tour-service', [TourController::class, 'createOrUpdateService'])->name('tour-service.execute');
+    Route::put('/tour-service/{id}', [TourController::class, 'createOrUpdateService']);
+    Route::delete('/tour-service/{id}', [TourController::class, 'deleteService'])->name('tour-service.delete');
 
     Route::get('/tour-type', [TourController::class, 'tourType'])->name('tour-type');
     Route::post('/tour-type', [TourController::class, 'createOrUpdateType'])->name('tour-type.execute');
@@ -93,7 +104,10 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::put('/tour-faq/{id}', [TourController::class, 'createOrUpdateFAQ']);
     Route::delete('/tour-faq/{id}', [TourController::class, 'deleteFaq'])->name('tour-faq.delete');
 
-    Route::get('/tour-itinerary', [AdminController::class, 'tourItinerary'])->name('tour-itinerary');
+    Route::get('/tour-itinerary', [TourController::class, 'tourItinerary'])->name('tour-itinerary');
+    Route::post('/tour-itinerary', [TourController::class, 'createOrUpdateItinerary'])->name('tour-itinerary.execute');
+    Route::put('/tour-itinerary/{id}', [TourController::class, 'createOrUpdateItinerary']);
+    Route::delete('/tour-itinerary/{id}', [TourController::class, 'deleteItinerary'])->name('tour-itinerary.delete');
 
     //Hotel
     Route::get('/hotel-management', [AdminController::class, 'hotelManagement'])->name('hotel-management');

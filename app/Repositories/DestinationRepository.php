@@ -13,7 +13,7 @@ class DestinationRepository
         $this->destination = $destination;
     }
 
-    public function all()
+    public function getAll()
     {
         return $this->destination->all();
     }

@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use App\Models\ServiceOfTour;
 
-class TourServiceRepository
+class ServiceOfTourRepository
 {
     protected $tourService;
 
@@ -13,7 +13,7 @@ class TourServiceRepository
         $this->tourService = $tourService;
     }
 
-    public function all()
+    public function getAll()
     {
         return $this->tourService->all();
     }

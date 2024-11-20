@@ -19,7 +19,7 @@
             </a>
             <div class="collapse show" id="tour-collapse" style="">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" style="background: rgb(255, 168, 121); font-size: 1.25rem">
-                    <li class="nav-link mb-2 p-2 {{ request()->is('tour-management') ? 'active' : '' }}"><a href="{{ route('tour-management') }}" class="nav-link text-white">Tour</a></li>
+                    <li class="nav-link mb-2 p-2 {{ request()->is('tour-management*') ? 'active' : '' }}"><a href="{{ route('tour-management') }}" class="nav-link text-white">Tour</a></li>
                     <li class="nav-link mb-2 p-2 {{ request()->is('tour-faq') ? 'active' : '' }}"><a href="{{ route('tour-faq') }}" class="nav-link text-white">Tour FAQ</a></li>
                     <li class="nav-link mb-2 p-2 {{ request()->is('tour-type') ? 'active' : '' }}"><a href="{{ route('tour-type') }}" class="nav-link text-white">Tour Type</a></li>
                     <li class="nav-link mb-2 p-2 {{ request()->is('tour-service') ? 'active' : '' }}"><a href="{{ route('tour-service') }}" class="nav-link text-white">Tour Service</a></li>

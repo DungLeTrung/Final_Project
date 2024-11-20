@@ -32,4 +32,19 @@ class Helper
 
         return $data;
     }
+
+    public static function uploadFile($file, $folder)
+    {
+        $path = $file->store($folder, 'public');
+        return $path;
+    }
+
+    public static function uploadMultipleFiles($files, $folder)
+    {
+        $paths = [];
+        foreach ($files as $file) {
+            $paths[] = $file->store($folder, 'public');
+        }
+        return $paths;
+    }
 }

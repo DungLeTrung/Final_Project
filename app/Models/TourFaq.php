@@ -14,6 +14,7 @@ class TourFaq extends Model
     protected $fillable = [
         'question',
         'answer',
+        'tour_id'
     ];
 
     public function tour()

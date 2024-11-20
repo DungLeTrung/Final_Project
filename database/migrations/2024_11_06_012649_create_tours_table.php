@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->text('description')->nullable();
             $table->decimal('tour_price', 8, 2);
-            $table->integer('tour_type');
+            $table->text('tour_type')->nullable();
             $table->json('tour_rule')->nullable();
             $table->integer('faq')->nullable();
             $table->integer('destination_id');

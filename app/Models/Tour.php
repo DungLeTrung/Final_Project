@@ -18,13 +18,13 @@ class Tour extends Model
         'departure_point',
         'duration',
         'address',
-        'image',
         'description',
         'tour_price',
         'tour_type',
-        'tour_rule',
         'faq',
         'destination_id',
+        'tour_rule',
+        'image',
     ];
 
     protected $casts = [
@@ -42,12 +42,12 @@ class Tour extends Model
 
     public function services()
     {
-        return $this->belongsToMany(ServiceOfTour::class, 'tour_service');
+        return $this->belongsToMany(ServiceOfTour::class, 'tour_service', 'tour_id', 'service_id');
     }
 
     public function faqs()
     {
-        return $this->hasMany(TourFaq::class);
+        return $this->hasMany(TourFaq::class, 'id');
     }
 
     public function destination()

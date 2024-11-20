@@ -17,6 +17,6 @@ class ServiceOfTour extends Model
 
     public function tours()
     {
-        return $this->belongsToMany(Tour::class, 'tour_service');
+        return $this->belongsToMany(Tour::class, 'tour_service', 'service_id', 'tour_id');
     }
 }

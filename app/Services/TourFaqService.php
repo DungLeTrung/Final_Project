@@ -22,9 +22,11 @@ class TourFaqService
     public function createOrUpdateFaq($data)
     {
         try {
+
             $validatedData = [
                 'question' => $data['question'],
                 'answer' => $data['answer'],
+                'tour_id' => $data['tour_id'],
             ];
 
             if (isset($data['id']) && $data['id']) {

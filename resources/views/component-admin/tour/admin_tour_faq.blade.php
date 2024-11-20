@@ -67,6 +67,16 @@
                             <!-- Hidden field to store the FAQ ID -->
                             <div class="form-row">
                                 <div class="form-col">
+                                    <label for="tour_id" class="form-label">Select Tour</label>
+                                    <select name="tour_id" class="form-control" id="tour_id" required>
+                                        @foreach ($tours as $tour)
+                                            <option value="{{ $tour->id }}">{{ $tour->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-col">
                                     <label for="question" class="form-label">Question</label>
                                     <input type="text" name="question" class="form-control" id="question" required>
                                 </div>
@@ -125,6 +135,7 @@
             $('#faqId').val(id);
             $('#question').val(question);
             $('#answer').val(answer);
+            $('#tour_id').val(tourId);
 
             $('#createModalLabel').text('Edit Tour FAQ');
             $('#createTourFaq').modal('show');

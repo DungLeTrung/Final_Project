@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TourFaqRequest extends FormRequest
+class TourServiceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +22,7 @@ class TourFaqRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'question' => 'required|string|max:255',
-            'answer' => 'required|string',
-            'tour_id' => 'required',
+            'service' => 'required|string|max:255',
         ];
     }
 }

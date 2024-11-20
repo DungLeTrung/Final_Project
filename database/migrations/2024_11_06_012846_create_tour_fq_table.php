@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('faq', function (Blueprint $table) {
             $table->id();
+            $table->integer('tour_id')->nullable()->after('answer');
             $table->string('question');
             $table->text('answer')->nullable();
             $table->timestamps();
