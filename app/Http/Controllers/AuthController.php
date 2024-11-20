@@ -70,12 +70,12 @@ class AuthController extends Controller
         if (Auth::attempt($request->only('email', 'password'))) {
             $user = Auth::user();
 
-            if ($user->role === 'ADMIN') {
+            if ($user->role === 'ADMIN' && $user->is_active === 1) {
                 return response()->json([
                     'message' => 'Login successful. Redirecting to admin dashboard.',
                     'redirect' => route('admin-dashboard'),
                 ], 200);
-            } else {
+            } else if($user->role === 'USER' && $user->is_active === 1) {
                 return response()->json([
                     'message' => 'Login successful. Redirecting to homepage.',
                     'redirect' => route('home-page'),

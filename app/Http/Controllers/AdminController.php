@@ -45,9 +45,4 @@ class AdminController extends Controller
     {
         return view('admin.room.admin_room_type');
     }
-
-    public function accountManagement()
-    {
-        return view('admin.user.admin_account');
-    }
 }

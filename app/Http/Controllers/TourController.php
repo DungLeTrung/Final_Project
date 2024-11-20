@@ -68,13 +68,12 @@ class TourController extends Controller
         return view('admin.tour.modal-create.create_tour', compact('tourFaq', 'tourType', 'tourDestination', 'tourService', 'tours'));
     }
 
-    public function updateTour(Request $request, $id)
+    public function saveTour(Request $request, $id = null)
     {
         DB::beginTransaction();
 
         try {
-
-            $response = $this->tourService->updateTour($id, $request->all());
+            $response = $this->tourService->saveTour($id, $request->all());
 
             DB::commit();
 
@@ -86,34 +85,9 @@ class TourController extends Controller
         } catch (\Exception $e) {
             DB::rollBack();
             return response()->json([
-                'message' => 'Error creating tour',
+                'message' => 'Error saving tour',
                 'error' => $e->getMessage(),
-            ], 201);
-        }
-    }
-
-    public function createTour(TourRequest $request)
-    {
-        // Bắt đầu transaction
-        DB::beginTransaction();
-
-        try {
-            $data = $request->all();
-
-            $response = $this->tourService->createTour($data);
-
-            DB::commit();
-
-            return response()->json([
-                'message' => $response['message'],
-                'tour' => $response['tour'],
-            ], 201);
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return response()->json([
-                'message' => 'Error creating tour',
-                'error' => $e->getMessage(),
-            ], 201);
+            ], 500);
         }
     }
 

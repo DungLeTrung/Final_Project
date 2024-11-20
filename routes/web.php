@@ -82,9 +82,9 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     //Tour
     Route::get('/tour-management', [TourController::class, 'tourManagement'])->name('tour-management');
     Route::get('/tour-management/create', [TourController::class, 'create'])->name('tour-management.create');
-    Route::post('/tour-management', [TourController::class, 'createTour'])->name('tour-management.execute');
+    Route::post('/tour-management', [TourController::class, 'saveTour'])->name('tour-management.execute');
     Route::get('tour-management/{id}/edit', [TourController::class, 'edit'])->name('tour-management.edit');
-    Route::post('tour-management/{id}/update', [TourController::class, 'updateTour'])->name('tour-management.update');
+    Route::post('tour-management/{id}/update', [TourController::class, 'saveTour'])->name('tour-management.update');
     Route::delete('/tour-management/{id}', [TourController::class, 'deleteTour'])->name('tour-management.delete');
     Route::post('/tour/{tourId}/update-gallery', [TourController::class, 'updateGallery'])->name('tour-management.update-gallery');
     Route::post('/tour/{tour}/delete-image/{image}', [TourController::class, 'deleteImage'])->name('tour-management.delete-image');
@@ -124,5 +124,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/room-type', [AdminController::class, 'roomType'])->name('room-type');
 
     //User
-    Route::get('/account-management', [AdminController::class, 'accountManagement'])->name('account-management');
+    Route::get('/account-management', [UserController::class, 'accountManagement'])->name('account-management');
+    Route::post('/account-management/toggle-ban', [UserController::class, 'toggleBan'])->name('user.toggle-ban');
+
 });

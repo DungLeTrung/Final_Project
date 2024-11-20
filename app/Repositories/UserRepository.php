@@ -14,7 +14,7 @@ class UserRepository
         $this->user = $user;
     }
 
-    public function getAllUsers($request)
+    public function getAllUsers()
     {
         return $this->user->where('role', '!=', 'ADMIN')->paginate(10);
     }
@@ -27,6 +27,17 @@ class UserRepository
     public function findByEmail($email)
     {
         return $this->user->where('email', $email)->first();
+    }
+
+    public function findById($id)
+    {
+        return $this->user->where('id', $id)->first();
+    }
+
+    public function updateStatus($user, $status)
+    {
+        $user->is_active = ($status === 'Active') ? true : false;
+        return $user->save();
     }
 
     public function updatePassword($user, $password)

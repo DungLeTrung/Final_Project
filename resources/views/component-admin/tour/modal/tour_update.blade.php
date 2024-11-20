@@ -88,7 +88,7 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="faq" class="form-label">FAQ</label>
-                        <select id="faq" class="form-select" multiple name="faq[]" required>
+                        <select id="faq" class="form-select" multiple name="faq[]">
                             @foreach ($tourFaq as $faq)
                                 <option value="{{ $faq->id }}"
                                     {{ in_array($faq->id, old('faq', explode(',', $tour->faq))) ? 'selected' : '' }}>
@@ -169,7 +169,7 @@
                 var formData = new FormData(this);
 
                 var tourId = $('#updateForm').data(
-                    'tour-id'); 
+                    'tour-id');
                 formData.append('id', tourId);
 
                 $.ajax({

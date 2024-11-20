@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Http\Helpers\Helper;
 use App\Models\AlbumImage;
+use App\Models\Tour;
 use App\Repositories\TourRepository;
 
 class TourService
@@ -25,50 +26,13 @@ class TourService
         return $this->tourRepository->getTourDetails($id);
     }
 
-    public function createTour(array $data)
+    public function saveTour($id = null, array $data)
     {
-        $imagePath = $this->handleImageUpload($data['image'] ?? null);
-
-        $galleryImages = $this->handleGalleryUpload($data['gallery_images'] ?? null);
-
-        $tourData = [
-            'name' => $data['name'],
-            'number_of_guests' => $data['number_of_guests'],
-            'departure_time' => $data['departure_time'],
-            'departure_point' => $data['departure_point'],
-            'duration' => $data['duration'],
-            'address' => $data['address'],
-            'description' => $data['description'],
-            'tour_price' => $data['tour_price'],
-            'destination_id' => $data['destination_id'],
-            'tour_rule' => $data['tour_rule'],
-            'tour_type' => implode(',', $data['tour_type']),
-            'image' => $imagePath
-        ];
-
-        $tour = $this->tourRepository->create($tourData);
-
-        $tour->services()->sync($data['services']);
-
-        if ($galleryImages) {
-            foreach ($galleryImages as $url) {
-                AlbumImage::create([
-                    'tour_id' => $tour->id,
-                    'url' => $url,
-                ]);
-            }
+        if ($id) {
+            $tour = $this->tourRepository->findTourById($id);
+        } else {
+            $tour = new Tour();
         }
-
-        return [
-            'message' => 'Tour created successfully!',
-            'tour' => $tour,
-            'status' => 200,
-        ];;
-    }
-
-    public function updateTour($id, array $data)
-    {
-        $tour = $this->tourRepository->findTourById($id);
 
         $tour->name = $data['name'];
         $tour->number_of_guests = $data['number_of_guests'];
@@ -81,16 +45,18 @@ class TourService
         $tour->destination_id = $data['destination_id'];
         $tour->tour_rule = $data['tour_rule'];
         $tour->tour_type = implode(',', $data['tour_type']);
-        $tour->faq = implode(',', $data['faq']);
 
         if (isset($data['image'])) {
             $tour->image = $this->handleImageUpload($data['image']);
         }
 
+        if (isset($data['faq'])) {
+            $tour->faq = implode(',', $data['faq']);
+        }
+
         $tour->save();
 
         $galleryImages = $this->handleGalleryUpload($data['gallery_images'] ?? null);
-
         if ($galleryImages) {
             foreach ($galleryImages as $url) {
                 AlbumImage::create([
@@ -105,7 +71,7 @@ class TourService
         }
 
         return [
-            'message' => 'Tour updated successfully!',
+            'message' => $id ? 'Tour updated successfully!' : 'Tour created successfully!',
             'tour' => $tour,
             'status' => 200,
         ];
