@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Helpers\Helper;
 use App\Http\Requests\TourFaqRequest;
-use App\Http\Requests\TourRequest;
+use App\Http\Requests\TourItineraryRequest;
 use App\Http\Requests\TourServiceRequest;
 use App\Http\Requests\TourTypeRequest;
 use App\Models\AlbumImage;
@@ -13,6 +12,7 @@ use App\Services\DestinationService;
 use App\Services\ServiceOfTourService;
 use App\Services\TourService;
 use App\Services\TourFaqService;
+use App\Services\TourItineraryService;
 use App\Services\TourTypeService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -25,14 +25,15 @@ class TourController extends Controller
     protected $serviceOfTour;
     protected $destinationService;
     protected $tourService;
+    protected $tourItineraryService;
 
-
-    public function __construct(TourService $tourService, TourFaqService $tourFaqService, TourTypeService $tourTypeService, ServiceOfTourService $serviceOfTour, DestinationService $destinationService)
+    public function __construct(TourItineraryService $tourItineraryService, TourService $tourService, TourFaqService $tourFaqService, TourTypeService $tourTypeService, ServiceOfTourService $serviceOfTour, DestinationService $destinationService)
     {
         $this->tourService = $tourService;
         $this->tourFaqService = $tourFaqService;
         $this->tourTypeService = $tourTypeService;
         $this->serviceOfTour = $serviceOfTour;
+        $this->tourItineraryService = $tourItineraryService;
         $this->destinationService = $destinationService;
     }
 
@@ -112,9 +113,57 @@ class TourController extends Controller
         }
     }
 
+    //Tour Itinerary
+
     public function tourItinerary()
     {
-        return view('admin.tour.admin_tour_itinerary');
+        $tours = $this->tourService->listTour();
+        $tourItinerary = $this->tourItineraryService->listItinerary();
+        return view('admin.tour.admin_tour_itinerary', compact('tourItinerary', 'tours'));
+    }
+
+    public function createOrUpdateItinerary(TourItineraryRequest $request)
+    {
+        try {
+            DB::beginTransaction();
+            $response = $this->tourItineraryService->createOrUpdateItinerary(
+                $request->all()
+            );
+
+            DB::commit();
+
+            return response()->json([
+                'message' => $response['message'],
+                'itinerary' => $response['itinerary'],
+            ], 201);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return response()->json([
+                'message' => 'Error creating tour itinerary',
+                'error' => $e->getMessage(),
+            ], 201);
+        }
+    }
+
+    public function deleteItinerary($id)
+    {
+        try {
+            DB::beginTransaction();
+
+            $response = $this->tourItineraryService->deleteItinerary($id);
+
+            DB::commit();
+
+            return response()->json([
+                'message' => $response['message'],
+            ], 200);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return response()->json([
+                'message' => 'Error deleting tour itinerary',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
     }
 
     //Tour FAQ

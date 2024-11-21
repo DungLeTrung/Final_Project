@@ -63,7 +63,7 @@
                     <div class="col-12">
                         <form id="createForm" method="POST" action="{{ route('tour-faq.execute') }}">
                             @csrf
-                            <input type="hidden" name="id" id="faqId">
+                            <input type="hidden" name="id" id="w">
                             <!-- Hidden field to store the FAQ ID -->
                             <div class="form-row">
                                 <div class="form-col">

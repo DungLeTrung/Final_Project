@@ -9,6 +9,8 @@ class TourItinerary extends Model
 {
     use HasFactory;
 
+    protected $table = 'tour_itinerary';
+
     protected $fillable = [
         'tour_id',
         'day',

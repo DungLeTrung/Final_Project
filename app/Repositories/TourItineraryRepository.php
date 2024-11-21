@@ -6,35 +6,35 @@ use App\Models\TourItinerary;
 
 class TourItineraryRepository
 {
-    protected $touritinerary;
+    protected $tourItinerary;
 
-    public function __construct(TourItinerary $touritinerary)
+    public function __construct(TourItinerary $tourItinerary)
     {
-        $this->touritinerary = $touritinerary;
+        $this->tourItinerary = $tourItinerary;
     }
 
-    public function all()
+    public function getAll()
     {
-        return $this->touritinerary->all();
+        return $this->tourItinerary->all();
     }
 
     public function find($id)
     {
-        return $this->touritinerary->find($id);
+        return $this->tourItinerary->find($id);
     }
 
     public function create(array $data)
     {
-        return $this->touritinerary->create($data);
+        return $this->tourItinerary->create($data);
     }
 
-    public function update(TourItinerary $touritinerary, array $data)
+    public function update(TourItinerary $tourItinerary, array $data)
     {
-        return $touritinerary->update($data);
+        return $tourItinerary->update($data);
     }
 
-    public function delete(TourItinerary $touritinerary)
+    public function delete(TourItinerary $tourItinerary)
     {
-        return $touritinerary->delete();
+        return $tourItinerary->delete();
     }
 }

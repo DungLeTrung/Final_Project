@@ -29,21 +29,28 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>ABC</td>
-                <td>ABC</td>
-                <td>ABC</td>
-                <td>ABC</td>
-                <td>
-                    <button class="btn btn-light">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </button>
-                    <button class="btn btn-light">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </td>
-            </tr>
+            @if ($tourItinerary && $tourItinerary->count() > 0)
+                @foreach ($tourItinerary as $itinerary)
+                    <tr>
+                        <td>{{ $itinerary->id }}</td>
+                        <td>{{ $itinerary->tour->name ?? 'N/A' }}</td>
+                        <td>{{ $itinerary->day }}</td>
+                        <td>{{ $itinerary->place }}</td>
+                        <td>{{ $itinerary->description }}</td>
+                        <td>
+                            <button class="btn btn-light editBtn" data-id="{{ $itinerary->id }}"
+                                data-day="{{ $itinerary->day }}" data-place="{{ $itinerary->place }}" data-description="{{ $itinerary->description }}"
+                                data-tour="{{ $itinerary->tour->id ?? '' }}">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </button>
+                            <button class="btn btn-light deleteBtn" data-id="{{ $itinerary->id }}"
+                                data-url="{{ route('tour-itinerary.delete', $itinerary->id) }}">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                @endforeach
+            @endif
         </tbody>
     </table>
 </div>
@@ -58,32 +65,34 @@
             <div class="modal-body">
                 <div class="d-flex">
                     <div class="col-12">
-                        <form id="createForm">
+                        <form id="createForm" method="POST" action="{{ route('tour-itinerary.execute') }}">
+                            @csrf
+                            <input type="hidden" name="id" id="itineraryId">
                             <div class="form-row">
                                 <div class="form-col">
                                     <label for="day" class="form-label">Day</label>
-                                    <input type="number" class="form-control" id="day" required>
+                                    <input type="number" name="day" class="form-control" id="day" required>
                                 </div>
                                 <div class="form-col">
                                     <label for="place" class="form-label">Place</label>
-                                    <input type="text" class="form-control" id="place" required>
+                                    <input type="text" name="place" class="form-control" id="place" required>
                                 </div>
                                 <div class="form-col">
                                     <label for="description" class="form-label">Description</label>
-                                    <input type="text" class="form-control" id="description" required>
+                                    <input type="text" name="description" class="form-control" id="description" required>
                                 </div>
                             </div>
                             <div class="form-row mt-3">
                                 <div class="form-col">
-                                    <label for="faq" class="form-label">Tour</label>
-                                    <select id="faq" class="form-select" multiple required>
-                                        <option value="Cancellation Policy">Cancellation Policy</option>
-                                        <option value="What to Bring">What to Bring</option>
-                                        <option value="Accommodation Details">Accommodation Details</option>
+                                    <label for="tour_id" class="form-label">Select Tour</label>
+                                    <select name="tour_id" class="form-control" id="tour_id" required>
+                                        @foreach ($tours as $tour)
+                                            <option value="{{ $tour->id }}">{{ $tour->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-primary mt-3" id="saveBtn">Save</button>
+                            <button type="submit" class="btn btn-primary mt-3" id="saveBtn">Save</button>
                         </form>
                     </div>
 
@@ -106,6 +115,102 @@
                     "next": ">"
                 }
             }
+        });
+
+        $('#createForm').on('submit', function(e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: $(this).attr('action'),
+                method: $(this).attr('method'),
+                data: $(this).serialize(),
+                success: function(response) {
+                    $('#createTourItenerary').modal('hide');
+                    showVanillaToast(response.message, 'success');
+                    setTimeout(() => location.reload(), 1000);
+                },
+                error: function(xhr) {
+                    formValidAjax(xhr);
+                }
+            });
+        });
+
+        $('.editBtn').on('click', function() {
+            var id = $(this).data('id');
+            var day = $(this).data('day');
+            var place = $(this).data('place');
+            var description = $(this).data('description');
+            var tourId = $(this).data('tour');
+
+            $('#itineraryId').val(id);
+            $('#day').val(day);
+            $('#place').val(place);
+            $('#description').val(description);
+            $('#tour_id').val(tourId);
+
+            $('#createModalLabel').text('Edit Tour Itinerary');
+            $('#createTourItenerary').modal('show');
+        });
+
+        $('.deleteBtn').on('click', function() {
+            var itineraryId = $(this).data('id');
+            var url = $(this).data('url');
+
+            if (confirm('Are you sure you want to delete this itinerary?')) {
+                $.ajax({
+                    url: url,
+                    method: 'DELETE',
+                    data: {
+                        "_token": $('meta[name="csrf-token"]').attr(
+                            'content')
+                    },
+                    success: function(response) {
+                        showVanillaToast(response.message, 'success');
+                        setTimeout(() => location.reload(), 1000);
+                    },
+                    error: function(xhr) {
+                        showVanillaToast('Error deleting itinerary', 'error');
+                    }
+                });
+            }
+        });
+
+        $('#example').on('draw.dt', function() {
+            $('.editBtn').off('click').on('click', function() {
+                var id = $(this).data('id');
+                var question = $(this).data('question');
+                var answer = $(this).data('answer');
+                var tourId = $(this).data('tour');
+
+                $('#itineraryId').val(id);
+                $('#question').val(question);
+                $('#answer').val(answer);
+
+                $('#createModalLabel').text('Edit Tour Itinerary');
+                $('#createTourItinerary').modal('show');
+            });
+
+            $('.deleteBtn').off('click').on('click', function() {
+                var itineraryId = $(this).data('id');
+                var url = $(this).data('url');
+
+                if (confirm('Are you sure you want to delete this itinerary?')) {
+                    $.ajax({
+                        url: url,
+                        method: 'DELETE',
+                        data: {
+                            "_token": $('meta[name="csrf-token"]').attr('content')
+                        },
+                        success: function(response) {
+                            showVanillaToast(response.message, 'success');
+                            setTimeout(() => location.reload(), 1000);
+                        },
+                        error: function(xhr) {
+                            showVanillaToast('Error deleting itinerary', 'error');
+                        }
+                    });
+                }
+            });
         });
     });
 </script>
