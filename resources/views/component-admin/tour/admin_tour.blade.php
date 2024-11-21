@@ -26,6 +26,7 @@
                 <th>Tour Type</th>
                 <th>Tour Rule</th>
                 <th>FAQ</th>
+                <th>Services</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -55,6 +56,14 @@
                                 $faq = $tourFaq->firstWhere('id', $faqId);
                                 return $faq ? $faq->question : 'N/A';
                             }, explode(',', $tour->faq)),
+                        ) }}
+                    </td>
+                    <td>
+                        {{ implode(
+                            ', ',
+                            $tour->services->map(function ($service) {
+                                return $service->service;
+                            })->toArray()
                         ) }}
                     </td>
                     <td>

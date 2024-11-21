@@ -33,12 +33,12 @@ class Room extends Model
 
     public function roomType()
     {
-        return $this->belongsTo(RoomType::class);
+        return $this->belongsTo(RoomType::class, 'room_type', 'id');
     }
 
     public function services()
     {
-        return $this->belongsToMany(ServiceOfRoom::class, 'room_service');
+        return $this->belongsToMany(ServiceOfRoom::class, 'room_service', 'room_id', 'service_id');
     }
 
     public function images()

@@ -1,10 +1,10 @@
 <div class="breadcrumb mb-3 p-3" style="background-color: antiquewhite">
-    <a style="color: orange; font-size: 1.5rem" href="{{ route('tour-management') }}">Tours</a>
-    <span style="font-size: 1.5rem">&nbsp;>&nbsp;Create Tour</span>
+    <a style="color: orange; font-size: 1.5rem" href="{{ route('room-management') }}">Rooms</a>
+    <span style="font-size: 1.5rem">&nbsp;>&nbsp;Create Room</span>
 </div>
 
 <div class="container my-5 col-10">
-    <h1>Create New Tour</h1>
+    <h1>Create New Room</h1>
     <form id="createForm" method="POST" action="{{ route('tour-management.execute') }}" enctype="multipart/form-data">
         @csrf
         <div class="row">
@@ -18,51 +18,36 @@
                         class="img-thumbnail mt-3 w-100" alt="Preview Image">
                 </div>
                 <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" name="name" class="form-control" id="name" required>
+                    <label for="number_of_people" class="form-label">Number of People</label>
+                    <input type="number" name="number_of_people" class="form-control" id="number_of_people" required>
                 </div>
                 <div class="mb-3">
-                    <label for="number_of_guests" class="form-label">Number of Guests</label>
-                    <input type="number" name="number_of_guests" class="form-control" id="number_of_guests" required>
+                    <label for="number_of_bed" class="form-label">Number of Bed</label>
+                    <input type="number" name="number_of_bed" class="form-control" id="number_of_bed" required>
                 </div>
                 <div class="mb-3">
-                    <label for="tourPrice" class="form-label">Tour Price</label>
-                    <input type="text" name="tour_price" class="form-control" id="tourPrice" required>
+                    <label for="room_price" class="form-label">Room Price</label>
+                    <input type="text" name="room_price" class="form-control" id="room_price" required>
+                </div>
+                <div class="mb-3">
+                    <label for="area" class="form-label">Area</label>
+                    <input type="text" name="area" class="form-control" id="area" required>
                 </div>
             </div>
 
             <!-- Right Column: Details -->
             <div class="col-md-8">
                 <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="departureTime" class="form-label">Departure Time</label>
-                        <input type="datetime-local" name="departure_time" class="form-control" id="departureTime"
-                            required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="departurePoint" class="form-label">Departure Point</label>
-                        <input type="text" name="departure_point" class="form-control" id="departurePoint" required>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea name="description" class="form-control" id="description" rows="3" required></textarea>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="duration" class="form-label">Duration</label>
-                        <input type="text" name="duration" class="form-control" id="duration" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="address" class="form-label">Address</label>
-                        <input type="text" name="address" class="form-control" id="address" required>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="description" class="form-label">Description</label>
-                    <textarea name="description" class="form-control" id="description" rows="3" required></textarea>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="tourType" class="form-label">Tour Type</label>
-                        <select id="tourType" class="form-select" multiple name="tour_type[]" required>
-                            @foreach ($tourType as $type)
+                        <label for="roomType" class="form-label">Room Type</label>
+                        <select id="roomType" class="form-select" multiple name="room_type[]" required>
+                            @foreach ($roomType as $type)
                                 <option value="{{ $type->id }}">{{ $type->type }}</option>
                             @endforeach
                         </select>
@@ -70,24 +55,15 @@
                     <div class="col-md-6 mb-3">
                         <label for="services" class="form-label">Services</label>
                         <select id="services" class="form-select" multiple name="services[]" required>
-                            @foreach ($tourService as $service)
+                            @foreach ($roomService as $service)
                                 <option value="{{ $service->id }}">{{ $service->service }}</option>
                             @endforeach
                         </select>
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="destination" class="form-label">Destination</label>
-                    <select id="destination" class="form-select" name="destination_id" required>
-                        @foreach ($tourDestination as $destination)
-                            <option value="{{ $destination->id }}">{{ $destination->city }} -
-                                {{ $destination->province }} - {{ $destination->country }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="tourRule" class="form-label">Tour Rule</label>
-                    <textarea name="tour_rule" class="form-control" id="tourRule" rows="4" required></textarea>
+                    <label for="roomRule" class="form-label">Tour Rule</label>
+                    <textarea name="room_rule" class="form-control" id="roomRule" rows="4" required></textarea>
                 </div>
             </div>
         </div>

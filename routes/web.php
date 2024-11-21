@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GoogleSocialiteController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RoomController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -113,15 +114,31 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/hotel-management', [AdminController::class, 'hotelManagement'])->name('hotel-management');
 
     Route::get('/hotel-service', [AdminController::class, 'hotelService'])->name('hotel-service');
+    // Route::post('/hotel-service', [TourController::class, 'createOrUpdateService'])->name('hotel-service.execute');
+    // Route::put('/hotel-service/{id}', [TourController::class, 'createOrUpdateService']);
+    // Route::delete('/hotel-service/{id}', [TourController::class, 'deleteService'])->name('hotel-service.delete');
 
     Route::get('/hotel-add-ons', [AdminController::class, 'hotelAddOns'])->name('hotel-add-ons');
 
     //Room
-    Route::get('/room-management', [AdminController::class, 'roomManagement'])->name('room-management');
+    Route::get('/room-management', [RoomController::class, 'roomManagement'])->name('room-management');
+    Route::get('/room-management/create', [RoomController::class, 'create'])->name('room-management.create');
+    Route::post('/room-management', [RoomController::class, 'saveRoom'])->name('room-management.execute');
+    Route::get('room-management/{id}/edit', [RoomController::class, 'edit'])->name('room-management.edit');
+    Route::post('room-management/{id}/update', [RoomController::class, 'saveRoom'])->name('room-management.update');
+    Route::delete('/room-management/{id}', [RoomController::class, 'deleteRoom'])->name('room-management.delete');
+    Route::post('/room/{roomId}/update-gallery', [RoomController::class, 'updateGallery'])->name('room-management.update-gallery');
+    Route::post('/room/{room}/delete-image/{image}', [RoomController::class, 'deleteImage'])->name('room-management.delete-image');
 
-    Route::get('/room-service', [AdminController::class, 'roomService'])->name('room-service');
+    Route::get('/room-service', [RoomController::class, 'roomService'])->name('room-service');
+    Route::post('/room-service', [RoomController::class, 'createOrUpdateService'])->name('room-service.execute');
+    Route::put('/room-service/{id}', [RoomController::class, 'createOrUpdateService']);
+    Route::delete('/room-service/{id}', [RoomController::class, 'deleteService'])->name('room-service.delete');
 
-    Route::get('/room-type', [AdminController::class, 'roomType'])->name('room-type');
+    Route::get('/room-type', [RoomController::class, 'roomType'])->name('room-type');
+    Route::post('/room-type', [RoomController::class, 'createOrUpdateType'])->name('room-type.execute');
+    Route::put('/room-type/{id}', [RoomController::class, 'createOrUpdateType']);
+    Route::delete('/room-type/{id}', [RoomController::class, 'deleteType'])->name('room-type.delete');
 
     //User
     Route::get('/account-management', [UserController::class, 'accountManagement'])->name('account-management');

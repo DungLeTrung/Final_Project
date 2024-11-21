@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use App\Models\ServiceOfRoom;
 
-class RoomServiceRepository
+class ServiceOfRoomRepository
 {
     protected $roomService;
 
@@ -13,7 +13,7 @@ class RoomServiceRepository
         $this->roomService = $roomService;
     }
 
-    public function all()
+    public function getAll()
     {
         return $this->roomService->all();
     }

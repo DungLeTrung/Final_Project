@@ -24,23 +24,23 @@
         </thead>
         <tbody>
             @if ($tourService && $tourService->count() > 0)
-            @foreach ($tourService as $service)
-                <tr>
-                    <td>{{ $service->id }}</td>
-                    <td>{{ $service->service }}</td>
-                    <td>
-                        <button class="btn btn-light editBtn" data-id="{{ $service->id }}"
-                            data-service="{{ $service->service }}">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                        </button>
-                        <button class="btn btn-light deleteBtn" data-id="{{ $service->id }}"
-                            data-url="{{ route('tour-service.delete', $service->id) }}">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                    </td>
-                </tr>
-            @endforeach
-        @endif
+                @foreach ($tourService as $service)
+                    <tr>
+                        <td>{{ $service->id }}</td>
+                        <td>{{ $service->service }}</td>
+                        <td>
+                            <button class="btn btn-light editBtn" data-id="{{ $service->id }}"
+                                data-service="{{ $service->service }}">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </button>
+                            <button class="btn btn-light deleteBtn" data-id="{{ $service->id }}"
+                                data-url="{{ route('tour-service.delete', $service->id) }}">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                @endforeach
+            @endif
         </tbody>
     </table>
 </div>

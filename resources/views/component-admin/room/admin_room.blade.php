@@ -3,7 +3,9 @@
         <div>
         </div>
         <div>
-            <button class="btn btn-primary">Add New <i class="fas fa-plus"></i></button>
+            <a href="{{ route('room-management.create') }}" class="btn btn-primary">
+                Add New <i class="fas fa-plus"></i>
+            </a>
         </div>
     </div>
 

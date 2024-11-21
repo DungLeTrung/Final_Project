@@ -85,5 +85,92 @@
                 }
             }
         });
+
+        $('#createForm').on('submit', function(e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: $(this).attr('action'),
+                method: $(this).attr('method'),
+                data: $(this).serialize(),
+                success: function(response) {
+                    $('#createTourType').modal('hide');
+                    showVanillaToast(response.message, 'success');
+                    setTimeout(() => location.reload(), 1000);
+                },
+                error: function(xhr) {
+                    formValidAjax(xhr);
+                }
+            });
+        });
+
+        $('.editBtn').on('click', function() {
+            var id = $(this).data('id');
+            var type = $(this).data('type');
+
+            $('#typeId').val(id);
+            $('#type').val(type);
+
+            $('#createModalLabel').text('Edit Tour Type');
+            $('#createTourType').modal('show');
+        });
+
+        $('.deleteBtn').on('click', function() {
+            var serviceId = $(this).data('id');
+            var url = $(this).data('url');
+
+            if (confirm('Are you sure you want to delete this Type?')) {
+                $.ajax({
+                    url: url,
+                    method: 'DELETE',
+                    data: {
+                        "_token": $('meta[name="csrf-token"]').attr(
+                            'content')
+                    },
+                    success: function(response) {
+                        showVanillaToast(response.message, 'success');
+                        setTimeout(() => location.reload(), 1000);
+                    },
+                    error: function(xhr) {
+                        showVanillaToast('Error deleting Type', 'error');
+                    }
+                });
+            }
+        });
+
+        $('#example').on('draw.dt', function() {
+            $('.editBtn').off('click').on('click', function() {
+                var id = $(this).data('id');
+                var type = $(this).data('type');
+
+                $('#typeId').val(id);
+                $('#type').val(type);
+
+                $('#createModalLabel').text('Edit Tour Type');
+                $('#createTourType').modal('show');
+            });
+
+            $('.deleteBtn').off('click').on('click', function() {
+                var typeId = $(this).data('id');
+                var url = $(this).data('url');
+
+                if (confirm('Are you sure you want to delete this Type?')) {
+                    $.ajax({
+                        url: url,
+                        method: 'DELETE',
+                        data: {
+                            "_token": $('meta[name="csrf-token"]').attr('content')
+                        },
+                        success: function(response) {
+                            showVanillaToast(response.message, 'success');
+                            setTimeout(() => location.reload(), 1000);
+                        },
+                        error: function(xhr) {
+                            showVanillaToast('Error deleting Type', 'error');
+                        }
+                    });
+                }
+            });
+        });
     });
 </script>

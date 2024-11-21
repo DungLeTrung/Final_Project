@@ -13,7 +13,7 @@ class RoomTypeRepository
         $this->roomtype = $roomtype;
     }
 
-    public function all()
+    public function getAll()
     {
         return $this->roomtype->all();
     }

@@ -9,6 +9,8 @@ class ServiceOfRoom extends Model
 {
     use HasFactory;
 
+    protected $table = 'services_of_room';
+
     protected $fillable = [
         'service',
     ];
